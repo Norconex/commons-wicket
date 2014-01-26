@@ -1,0 +1,68 @@
+.nx-commons-tab-row {
+    color: #151515;
+    text-align: center;
+    font-size: 12px;
+    position:relative;
+    top: 1px;
+}
+.nx-commons-tab-row li {
+    display: inline;
+}
+.nx-commons-tab-row li a {
+    height: 16px;
+    font-weight: bold;
+    background-color: #fafafe;
+    float: left;
+    color: #808080;
+    padding: 5px 15px 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    margin: 0px 20px 0px 20px;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #ececec #ececec #c5dbec #ececec;
+    border-radius: 5px 5px 0px 0px;
+    margin: 0px 3px 0px 0px;
+    min-width: 75px;
+}
+.nx-commons-tab-row li a:hover {
+    background-color: #f0f0ff;
+    color: #2C71AE;
+}
+.nx-commons-tab-row li a:ACTIVE {
+    color: orange;
+    background-color: #f0f0ff;
+}
+
+.nx-commons-tab-row ul {
+    margin: 7px; padding: 0px; list-style : none;
+}
+
+.nx-commons-tab-row li.selected a {
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #c5dbec #c5dbec #FFFFFF #c5dbec;
+    xxbackground-color: #f0f0ff;
+    background-color: white;
+    color: #2C71AE;
+    xxcolor: #333333;
+    font-size: 14px;
+    cursor: default;
+
+}
+.nx-commons-tab-panel {
+    background-color: white;
+    clear:both;
+    border: 1px solid #c5dbec;
+    border-radius: 7px 7px 7px 7px;
+    xxborder-radius: 0px 7px 7px 7px;
+    padding: 10px;
+}
+.nx-commons-tab-close-link {
+    cursor: pointer;
+    float:right;
+}
+.nx-commons-tab-close-icon {
+    width: 8px;
+    height: 8px;
+}
