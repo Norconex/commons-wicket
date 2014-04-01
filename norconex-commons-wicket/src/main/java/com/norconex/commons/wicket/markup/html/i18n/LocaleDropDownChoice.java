@@ -4,11 +4,10 @@ import java.util.List;
 import java.util.Locale;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.IChoiceRenderer;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.util.ListModel;
-
-import com.googlecode.wicket.jquery.ui.kendo.dropdown.DropDownList;
 
 
 //TODO remove icon
@@ -29,7 +28,7 @@ import com.googlecode.wicket.jquery.ui.kendo.dropdown.DropDownList;
  * instances in a user-friendly way.
  * @author Pascal Essiembre
  */
-public class LocaleDropDownChoice extends DropDownList<Locale> {
+public class LocaleDropDownChoice extends DropDownChoice<Locale> {
 
     private static final long serialVersionUID = 1L;
     public LocaleDropDownChoice(
