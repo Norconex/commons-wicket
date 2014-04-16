@@ -1,0 +1,9 @@
+.plot .jqplot-highlighter-tooltip, .plot .jqplot-canvasOverlay-tooltip {
+    font-size: 0.75em;
+    white-space: nowrap;
+    background-color:#FFFFFF;
+    padding: 1px;
+    border-radius:10px; 
+    border:2px solid #6997c7; 
+    padding:5px;
+}
