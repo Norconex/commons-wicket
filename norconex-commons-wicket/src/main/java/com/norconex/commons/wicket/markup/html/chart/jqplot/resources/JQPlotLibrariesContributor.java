@@ -16,14 +16,16 @@ public final class JQPlotLibrariesContributor {
         renderJS(response, 
             "jquery.jqplot.min.js",
             "jqplot.barRenderer.min.js",
+            "jqplot.pieRenderer.min.js",
             "jqplot.canvasAxisLabelRenderer.min.js",
             "jqplot.canvasAxisTickRenderer.min.js",
             "jqplot.canvasTextRenderer.min.js",
             "jqplot.cursor.min.js",
             "jqplot.dateAxisRenderer.min.js",
+            "jqplot.categoryAxisRenderer.min.js",
             "jqplot.highlighter.min.js",
-            "jqplot.pieRenderer.min.js",
             "jqplot.pointLabels.min.js",
+            "jqplot.logAxisRenderer.min.js",
             "export-jqplot-to-png.js"
         );
         renderCss(response, "jquery.jqplot.min.css");
