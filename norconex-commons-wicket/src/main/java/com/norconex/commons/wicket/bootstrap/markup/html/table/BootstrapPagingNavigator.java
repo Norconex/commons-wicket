@@ -1,7 +1,5 @@
 package com.norconex.commons.wicket.bootstrap.markup.html.table;
 
-import java.io.Serializable;
-
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.markup.html.link.ExternalLink;
@@ -12,7 +10,6 @@ import org.apache.wicket.markup.html.navigation.paging.PagingNavigation;
 import org.apache.wicket.markup.html.navigation.paging.PagingNavigationIncrementLink;
 import org.apache.wicket.markup.html.navigation.paging.PagingNavigationLink;
 import org.apache.wicket.markup.html.navigation.paging.PagingNavigator;
-import org.apache.wicket.model.IModel;
 
 public class BootstrapPagingNavigator extends PagingNavigator {
 
@@ -39,8 +36,9 @@ public class BootstrapPagingNavigator extends PagingNavigator {
 
                 // add css for enable/disable link
                 long pageIndex = getStartIndex() + iteration;
-                item.add(new AttributeModifier("class", new PageLinkCssModel(
-                        pageable, pageIndex, "active")));
+                item.add(new AttributeModifier("class", 
+                        new BootstrapPageLinkCssModel(
+                                pageable, pageIndex, "active")));
 
                 return item;
             }
@@ -54,8 +52,9 @@ public class BootstrapPagingNavigator extends PagingNavigator {
 
         // add css for enable/disable link
         long pageIndex = pageable.getCurrentPage() + pageNumber;
-        navCont.add(new AttributeModifier("class", new PageLinkCssModel(
-                pageable, pageIndex, "disabled")));
+        navCont.add(new AttributeModifier("class", 
+                new BootstrapPageLinkCssModel(
+                        pageable, pageIndex, "disabled")));
 
         // change original wicket-link, so that it always generates href
         navCont.add(new PagingNavigationLink<Void>(id, pageable, pageNumber));
@@ -70,102 +69,11 @@ public class BootstrapPagingNavigator extends PagingNavigator {
         // add css for enable/disable link
         long pageIndex = pageable.getCurrentPage() + increment;
         navCont.add(new AttributeModifier("class",
-                new PageLinkIncrementCssModel(pageable, pageIndex)));
+                new BootstrapPageLinkIncrementCssModel(pageable, pageIndex)));
 
         // change original wicket-link, so that it always generates href
         navCont.add(new PagingNavigationIncrementLink<Void>(
                 id, pageable, increment));
         return navCont;
-    }
-
-    class PageLinkCssModel implements IModel<String>, Serializable {
-        private static final long serialVersionUID = -6329531365266706790L;
-        private final long pageNumber;
-        protected final IPageable pageable;
-        private final String css;
-
-        public PageLinkCssModel(IPageable pageable, 
-                long pageNumber, String css) {
-            this.pageNumber = pageNumber;
-            this.pageable = pageable;
-            this.css = css;
-        }
-
-        @Override
-        public String getObject() {
-            return isSelected() ? css : "";
-        }
-
-        @Override
-        public void setObject(String object) {
-        }
-
-        @Override
-        public void detach() {
-        }
-
-        public boolean isSelected() {
-            return getPageNumber() == pageable.getCurrentPage();
-        }
-
-        private long getPageNumber() {
-            long idx = pageNumber;
-            if (idx < 0) {
-                idx = pageable.getPageCount() + idx;
-            }
-
-            if (idx > (pageable.getPageCount() - 1)) {
-                idx = pageable.getPageCount() - 1;
-            }
-
-            if (idx < 0) {
-                idx = 0;
-            }
-
-            return idx;
-        }
-
-    }
-
-    public class PageLinkIncrementCssModel implements IModel<String>,
-            Serializable {
-
-        private static final long serialVersionUID = -6199337400800074608L;
-        protected final IPageable pageable;
-        private final long pageNumber;
-
-        public PageLinkIncrementCssModel(IPageable pageable, long pageNumber) {
-            this.pageable = pageable;
-            this.pageNumber = pageNumber;
-        }
-
-        @Override
-        public String getObject() {
-            return isEnabled() ? "" : "disabled";
-        }
-
-        @Override
-        public void setObject(String object) {
-        }
-
-        @Override
-        public void detach() {
-        }
-
-        public boolean isEnabled() {
-            if (pageNumber < 0) {
-                return !isFirst();
-            } else {
-                return !isLast();
-            }
-        }
-
-        public boolean isFirst() {
-            return pageable.getCurrentPage() <= 0;
-        }
-
-        public boolean isLast() {
-            return pageable.getCurrentPage() >= (pageable.getPageCount() - 1);
-        }
     }
 }

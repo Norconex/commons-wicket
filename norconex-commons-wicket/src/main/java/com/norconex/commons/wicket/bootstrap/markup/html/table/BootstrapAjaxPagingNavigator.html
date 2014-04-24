@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns:wicket="http://wicket.apache.org">
+<body>
+<wicket:panel>
+    <ul class="pagination pagination-sm" style="font-weight: bold; margin: 10px auto 0px auto;">
+        <li wicket:id="firstCont" class="disabled">
+            <a wicket:id="first" href="#"><i class="fa fa-angle-double-left"></i></a></li>
+        <li wicket:id="prevCont" class="disabled">
+            <a wicket:id="prev" href="#"><i class="fa fa-angle-left"></i></a></li>
+        <li wicket:id="navigation">
+            <a wicket:id="pageLink" href="#">
+            <span wicket:id="pageNumber">1</span></a>
+        </li>
+        <li wicket:id="nextCont" class="disabled">
+            <a wicket:id="next" href="#"><i class="fa fa-angle-right"></i></a></li>
+        <li wicket:id="lastCont" class="disabled">
+            <a wicket:id="last" href="#"><i class="fa fa-angle-double-right"></i></a></li>
+    </ul>
+</wicket:panel>
+</body>
+</html>

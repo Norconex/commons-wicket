@@ -1,4 +1,4 @@
-package com.norconex.commons.wicket.bootstrap.markup.html.table;
+package com.norconex.commons.wicket.bootstrap;
 
 import org.apache.wicket.markup.head.IHeaderResponse;
 
