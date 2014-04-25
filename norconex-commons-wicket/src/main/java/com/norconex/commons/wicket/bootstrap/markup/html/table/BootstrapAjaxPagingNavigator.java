@@ -53,31 +53,58 @@ public class BootstrapAjaxPagingNavigator extends AjaxPagingNavigator {
     }
 
     @Override
-    protected AbstractLink newPagingNavigationIncrementLink(String id,
-            IPageable pageable, int increment) {
-        final AjaxPagingNavigationLink link = 
-                new AjaxPagingNavigationLink(id, pageable, increment);
-        AjaxLink<String> navCont = new AjaxLink<String>(id + "Cont") {
-            private static final long serialVersionUID = -7414576817418282720L;
+    protected PagingNavigation newNavigation(final String id,
+            final IPageable pageable, 
+            final IPagingLabelProvider labelProvider) {
+        return new AjaxPagingNavigation(id, pageable, labelProvider) {
+            private static final long serialVersionUID = -1041791124600426054L;
+
             @Override
-            public void onClick(AjaxRequestTarget target) {
-                link.onClick(target);
+            protected LoopItem newItem(int iteration) {
+                LoopItem item = super.newItem(iteration);
+
+                // add css for enable/disable link
+                long pageIndex = getStartIndex() + iteration;
+                item.add(new AttributeModifier("class", 
+                        new BootstrapPageLinkCssModel(
+                                pageable, pageIndex, "active")));
+
+                return item;
             }
         };
-        navCont.add(link);
-        
-        // add css for enable/disable link
-        long pageIndex = pageable.getCurrentPage() + increment;
-        navCont.add(new AttributeModifier("class", 
-                new BootstrapPageLinkIncrementCssModel(pageable, pageIndex)));
-        return navCont;
     }
-    
+
     @Override
-    protected AbstractLink newPagingNavigationLink(String id,
-            IPageable pageable, int pageNumber) {
+    protected AbstractLink newPagingNavigationLink(
+            final String id, IPageable pageable, int pageNumber) {
         final AjaxPagingNavigationLink link = 
-                new AjaxPagingNavigationLink(id, pageable, pageNumber);
+                new AjaxPagingNavigationLink(id, pageable, pageNumber) {
+            private static final long serialVersionUID = -4537725137974552570L;
+            protected long cullPageNumber(long pageNumber) {
+                long idx = pageNumber;
+                if (id.startsWith("first")) {
+                    return 0;
+                }
+                if (id.startsWith("last")) {
+                    return pageable.getPageCount() - 1;
+                }
+                if (id.startsWith("prev")) {
+                    idx = pageable.getCurrentPage() -1;
+                } else if (id.startsWith("next")) {
+                    idx = pageable.getCurrentPage() + 1;
+                }
+                if (idx < 0) {
+                    idx = 0;
+                }
+                if (idx > (pageable.getPageCount() - 1)) {
+                    idx = pageable.getPageCount() - 1;
+                }
+                if (idx < 0) {
+                    idx = 0;
+                }
+                return idx;
+            }
+        };
         AjaxLink<String> navCont = new AjaxLink<String>(id + "Cont") {
             private static final long serialVersionUID = -7566811745303329592L;
             @Override
@@ -96,26 +123,50 @@ public class BootstrapAjaxPagingNavigator extends AjaxPagingNavigator {
     }
     
     @Override
-    protected PagingNavigation newNavigation(final String id,
-            final IPageable pageable, 
-            final IPagingLabelProvider labelProvider) {
-        
-        return new AjaxPagingNavigation(id, pageable, labelProvider) {
-            private static final long serialVersionUID = -1041791124600426054L;
-
-            @Override
-            protected LoopItem newItem(int iteration) {
-                LoopItem item = super.newItem(iteration);
-
-                // add css for enable/disable link
-                long pageIndex = getStartIndex() + iteration;
-                item.add(new AttributeModifier("class", 
-                        new BootstrapPageLinkCssModel(
-                                pageable, pageIndex, "active")));
-
-                return item;
+    protected AbstractLink newPagingNavigationIncrementLink(
+            final String id, IPageable pageable, int increment) {
+        final AjaxPagingNavigationLink link = 
+                new AjaxPagingNavigationLink(id, pageable, increment) {
+            private static final long serialVersionUID = 6737074324471003133L;
+            protected long cullPageNumber(long pageNumber)             {
+                long idx = pageNumber;
+                if (id.startsWith("first")) {
+                    return 0;
+                }
+                if (id.startsWith("last")) {
+                    return pageable.getPageCount() - 1;
+                }
+                if (id.startsWith("prev")) {
+                    idx = pageable.getCurrentPage() -1;
+                } else if (id.startsWith("next")) {
+                    idx = pageable.getCurrentPage() + 1;
+                }
+                if (idx < 0) {
+                    idx = 0;
+                }
+                if (idx > (pageable.getPageCount() - 1)) {
+                    idx = pageable.getPageCount() - 1;
+                }
+                if (idx < 0) {
+                    idx = 0;
+                }
+                return idx;
             }
         };
+        AjaxLink<String> navCont = new AjaxLink<String>(id + "Cont") {
+            private static final long serialVersionUID = -7414576817418282720L;
+            @Override
+            public void onClick(AjaxRequestTarget target) {
+                link.onClick(target);
+            }
+        };
+        navCont.add(link);
+        
+        // add css for enable/disable link
+        long pageIndex = pageable.getCurrentPage() + increment;
+        navCont.add(new AttributeModifier("class", 
+                new BootstrapPageLinkIncrementCssModel(pageable, pageIndex)));
+        return navCont;
     }
     
     /**
