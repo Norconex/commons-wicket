@@ -10,6 +10,8 @@ public class PlotData implements Serializable {
 
     private Series<?,?>[] series;
     private PlotOptions options;
+    private String preJavascript;
+    private String postJavascript;
     
     public PlotData() {
         super();
@@ -32,5 +34,16 @@ public class PlotData implements Serializable {
     public void setOptions(PlotOptions options) {
         this.options = options;
     }
-
+    public String getPreJavascript() {
+        return preJavascript;
+    }
+    public void setPreJavascript(String preJavascript) {
+        this.preJavascript = preJavascript;
+    }
+    public String getPostJavascript() {
+        return postJavascript;
+    }
+    public void setPostJavascript(String postJavascript) {
+        this.postJavascript = postJavascript;
+    }
 }

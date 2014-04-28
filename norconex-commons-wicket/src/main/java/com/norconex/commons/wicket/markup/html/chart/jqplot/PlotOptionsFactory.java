@@ -25,7 +25,6 @@ public final class PlotOptionsFactory {
     }
 
     public static PlotOptions createPieChart() {
-        //PlotOptions p = createCommonBasePlot();
         PlotOptions p = new PlotOptions();
         p.setAnimate(true);
         p.setCaptureRightClick(true);
@@ -42,11 +41,8 @@ public final class PlotOptionsFactory {
         HighlighterOptions hl = p.getHighlighter();
         hl.setShow(true);
         hl.setUseAxesFormatters(false);
-//        hl.setFormatString("%s");
+        hl.setFormatString("%s");
         hl.setShowTooltip(true);
-//        hl.setSizeAdjust(7.5f);
-//        hl.setYvalues(1);
-
         
         p.getSeriesDefaults().setRenderer(SeriesOptions.PIE_RENDERER);
 

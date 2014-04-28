@@ -23,6 +23,7 @@ public class HighlighterOptions implements Serializable {
     private String tooltipFormatString;
     private Integer yvalues;
     private String formatString;
+    private String tooltipContentEditor;
     
     public Float getLineWidthAdjust() {
         return lineWidthAdjust;
@@ -177,6 +178,17 @@ public class HighlighterOptions implements Serializable {
     public void setShow(Boolean show) {
         this.show = show;
     }
+    public String getTooltipContentEditor() {
+        return tooltipContentEditor;
+    }
+    /**
+     * Sets custom callback method to retrieve the tooltip content 
+     * (for advanced use).
+     * @param tooltipContentEditor raw text
+     */
+    public void setTooltipContentEditor(String tooltipContentEditor) {
+        this.tooltipContentEditor = tooltipContentEditor;
+    }
     @Override
     public String toString() {
         return new PlotToStringBuilder()
@@ -193,6 +205,7 @@ public class HighlighterOptions implements Serializable {
             .string("tooltipFormatString", tooltipFormatString)
             .number("yvalues", yvalues)
             .string("formatString", formatString)
+            .raw("tooltipContentEditor", tooltipContentEditor)
             .toString();
     }
 }

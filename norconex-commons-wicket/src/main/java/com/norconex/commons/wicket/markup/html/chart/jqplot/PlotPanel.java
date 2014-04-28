@@ -40,16 +40,30 @@ public class PlotPanel extends CssPanel {
 
         String code = "";
         if (plotData != null) {
+            //--- Options ---
             String options = "{}";
             if (plotData.getOptions() != null) {
                 options = plotData.getOptions().toString();
             }
+            //--- Series ---
             String series = "[]";
             if (plotData.getSeries() != null) {
                 series = "[" + StringUtils.join(
                         plotData.getSeries(), ", ") + "]";
             }
+            //--- pre/post JS ---
+            String preJs = plotData.getPreJavascript();
+            if (preJs == null) {
+                preJs = StringUtils.EMPTY;
+            }
+            String postJs = plotData.getPostJavascript();
+            if (postJs == null) {
+                postJs = StringUtils.EMPTY;
+            }
+
+            //--- Plot Code ---
             code = "$(document).ready(function(){"
+                 + preJs   
                  + "  $.jqplot.config.enablePlugins = true;"
                  + "  var plot = $.jqplot('" 
                          + plotId + "', " + series + ", " + options + ");"
@@ -61,6 +75,7 @@ public class PlotPanel extends CssPanel {
                  + "      plot.replot();"
                  + "    }"
                  + "  });"
+                 + postJs
                  + "});";
         }
         Label script = new Label("script", code); 
