@@ -68,10 +68,10 @@ highlightColors an array of colors to use when highlighting a bar.
     public String toString() {
         return new PlotToStringBuilder()
             .raw("animation", animation)
-            .integer("barPadding", barPadding)
-            .integer("barMargin", barMargin)
+            .number("barPadding", barPadding)
+            .number("barMargin", barMargin)
             .enumString("barDirection", barDirection)
-            .integer("barWidth", barWidth)
+            .number("barWidth", barWidth)
             .toString();
     }
 }

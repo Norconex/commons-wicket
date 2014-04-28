@@ -2,6 +2,7 @@ package com.norconex.commons.wicket.markup.html.chart.jqplot.options;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -57,7 +58,7 @@ import org.apache.commons.lang3.StringUtils;
         list.add(name + ":" + value);
         return this;
     }
-    public PlotToStringBuilder integer(String name, Integer value) {
+    public PlotToStringBuilder number(String name, Integer value) {
         if (value == null) {
             return this;
         }
@@ -72,7 +73,7 @@ import org.apache.commons.lang3.StringUtils;
         return this;
     }
     public PlotToStringBuilder rawList(String name, List<?> list) {
-        if (list == null) {
+        if (list == null || list.isEmpty()) {
             return this;
         }
         return rawArray(name, list.toArray());
@@ -122,6 +123,23 @@ import org.apache.commons.lang3.StringUtils;
             }
             b.append("'");
             b.append(esc(str));
+            b.append("'");
+        }
+        b.append("]");
+        list.add(name + ":" + b.toString());
+        return this;
+    }
+    public PlotToStringBuilder enumArray(String name, Enum<?>[] array) {
+        if (array == null || array.length == 0) {
+            return this;
+        }
+        StringBuilder b = new StringBuilder("[");
+        for (Enum<?> en : array) {
+            if (b.length() > 2) {
+                b.append(", ");
+            }
+            b.append("'");
+            b.append(esc(Objects.toString(en, null)));
             b.append("'");
         }
         b.append("]");

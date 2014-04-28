@@ -31,11 +31,28 @@ public final class PlotOptionsFactory {
         p.setCaptureRightClick(true);
         p.getCursor().setShow(false);
         
+        GridOptions grid = p.getGrid();
+        grid.setDrawGridLines(false);
+        grid.setShadow(false);
+        grid.setGridLineColor("#ffffff");
+        grid.setBackground("#ffffff");
+        grid.setBorderColor("#ffffff");
+        grid.setBorderWidth(0.0f);
+        
+        HighlighterOptions hl = p.getHighlighter();
+        hl.setShow(true);
+        hl.setUseAxesFormatters(false);
+//        hl.setFormatString("%s");
+        hl.setShowTooltip(true);
+//        hl.setSizeAdjust(7.5f);
+//        hl.setYvalues(1);
+
+        
         p.getSeriesDefaults().setRenderer(SeriesOptions.PIE_RENDERER);
 
         PieRendererOptions pieRenderer = new PieRendererOptions();
         pieRenderer.setPadding(8);
-        pieRenderer.setSliceMargin(4);
+        pieRenderer.setSliceMargin(6);
         pieRenderer.setShowDataLabels(true);
         pieRenderer.setHighlightMouseOver(true);
         
@@ -43,19 +60,7 @@ public final class PlotOptionsFactory {
         
         LegendOptions legendOptions = p.getLegend();
         legendOptions.setShow(true);
-        
-        
-//        HighlighterOptions hl = p.getHighlighter();
-//        hl.setShow(true);
-        
-//        BarRendererOptions barRenderer = new BarRendererOptions();
-//        barRenderer.getAnimation().setSpeed(DEFAULT_ANIMATION_SPEED);
-//        barRenderer.setBarDirection(Direction.horizontal);
-//        p.getSeriesDefaults().setRendererOptions(barRenderer);
-//
-//        p.getGrid().setDrawGridLines(false);
-//        p.getAxes().getYaxis().setRenderer(AxisOptions.CATEGORY_AXIS_RENDERER);
-//        p.getHighlighter().setShow(false);
+
         return p;
     }
     

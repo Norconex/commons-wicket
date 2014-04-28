@@ -30,7 +30,7 @@ public class AxisOptions implements Serializable {
     public static final String DATE_AXIS_RENDERER = "$.jqplot.DateAxisRenderer";
 
     /**
-     * A “tick�? object showing the value of a tick/gridline on the plot.
+     * A “tick�? object showing the value of a tick/gridline on the plot.
      */
     public static final String AXIS_TICK_RENDERER = "$.jqplot.AxisTickRenderer";
     
@@ -234,7 +234,7 @@ public class AxisOptions implements Serializable {
             .decimal("padMin", padMin)
             .decimal("padMax", padMax)
             .rawArray("ticks", ticks)
-            .integer("numberTicks", numberTicks)
+            .number("numberTicks", numberTicks)
             .string("tickInterval", tickInterval)
             .raw("rendererOptions", rendererOptions)
             .raw("tickRenderer", tickRenderer)

@@ -186,12 +186,12 @@ public class HighlighterOptions implements Serializable {
             .bool("showTooltip", showTooltip)
             .enumString("tooltipLocation", tooltipLocation)
             .string("tooltipFadeSpeed", tooltipFadeSpeed)
-            .integer("tooltipOffset", tooltipOffset)
+            .number("tooltipOffset", tooltipOffset)
             .enumString("tooltipAxes", tooltipAxes)
             .string("tooltipSeparator", tooltipSeparator)
             .bool("useAxesFormatters", useAxesFormatters)
             .string("tooltipFormatString", tooltipFormatString)
-            .integer("yvalues", yvalues)
+            .number("yvalues", yvalues)
             .string("formatString", formatString)
             .toString();
     }

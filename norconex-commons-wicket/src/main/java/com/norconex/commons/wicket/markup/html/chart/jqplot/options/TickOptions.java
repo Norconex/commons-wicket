@@ -96,7 +96,7 @@ public class TickOptions implements Serializable {
             .enumString("mark", mark)
             .bool("showMark", showMark)
             .bool("showGridline", showGridline)
-            .integer("markSize", markSize)
+            .number("markSize", markSize)
             .bool("show", show)
             .bool("showLabel", showLabel)
             .string("formatString", formatString)

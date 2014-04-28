@@ -74,10 +74,10 @@ public class LegendOptions implements Serializable {
     }
     /**
      * Sets the legend placement in relation to the grid. 
-     * â€?insideGridâ€? places legend inside the grid 
-     * area of the plot. â€œoutsideGridâ€? places the legend outside the grid but 
+     * ï¿½?insideGridï¿½? places legend inside the grid 
+     * area of the plot. â€œoutsideGridï¿½? places the legend outside the grid but 
      * inside the plot container, shrinking the grid to accommodate the legend.
-     * â€œinsideâ€? synonym for â€œinsideGridâ€?, â€œoutsideâ€? places the legend outside 
+     * â€œinsideï¿½? synonym for â€œinsideGridï¿½?, â€œoutsideï¿½? places the legend outside 
      * the grid area, but does not shrink the grid which can cause the legend 
      * to overflow the plot container.
      * @param placement the legend placement
@@ -90,8 +90,8 @@ public class LegendOptions implements Serializable {
         return new PlotToStringBuilder()
             .bool("show", show)
             .enumString("location", location)
-            .integer("xoffset", xoffset)
-            .integer("yoffset", yoffset)
+            .number("xoffset", xoffset)
+            .number("yoffset", yoffset)
             .stringArray("labels", labels)
             .enumString("placement", placement)
             .toString();

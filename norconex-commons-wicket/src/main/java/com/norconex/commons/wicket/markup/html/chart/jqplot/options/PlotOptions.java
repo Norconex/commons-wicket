@@ -146,7 +146,7 @@ public class PlotOptions implements Serializable {
         }
         return builder
             .bool("captureRightClick", captureRightClick)
-            .stringArray("seriesColor", seriesColors)
+            .stringArray("seriesColors", seriesColors)
             .bool("stackSeries", stackSeries)
             .string("title", title)
             .raw("axesDefault", axesDefault)

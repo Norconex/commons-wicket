@@ -10,13 +10,22 @@ public class PieRendererOptions implements ISeriesRendererOptions {
 
     private static final long serialVersionUID = 411043890660222987L;
 
+    public static final String DATALABEL_LABEL   = "label";
+    public static final String DATALABEL_VALUE   = "value";
+    public static final String DATALABEL_PERCENT = "percent";
+    
     private final AnimationOptions animation = new AnimationOptions();
     private Integer diameter;
     private Integer padding;
     private Integer sliceMargin;
     private Boolean fill;
+    private String[] dataLabels;
+    private Float dataLabelPositionFactor;
+    private Boolean dataLabelCenterOn;
     private Boolean showDataLabels;
     private Boolean highlightMouseOver;
+    private Boolean highlightMouseDown;
+    private String[] highlightColors;
     
     /*
 
@@ -25,12 +34,9 @@ $.jqplot.PieRenderer    Plugin renderer to draw a pie chart.
 shadowOffset    offset of the shadow from the slice and offset of each succesive stroke of the shadow from the last.
 shadowAlpha     transparency of the shadow (0 = transparent, 1 = opaque)
 shadowDepth     number of strokes to apply to the shadow, each stroke offset shadowOffset from the last.
-highlightMouseDown      True to highlight when a mouse button is pressed over a slice.
-highlightColors an array of colors to use when highlighting a slice.
 dataLabels      Either ‘label’, ‘value’, ‘percent’ or an array of labels to place on the pie slices.
 dataLabelFormatString   Format string for data labels.
 dataLabelThreshold      Threshhold in percentage (0-100) of pie area, below which no label will be displayed.
-dataLabelPositionFactor A Multiplier (0-1) of the pie radius which controls position of label on slice.
 dataLabelNudge  Number of pixels to slide the label away from (+) or toward (-) the center of the pie.
 dataLabelCenterOn       True to center the data label at its position.
 startAngle      Angle to start drawing pie in degrees.
@@ -56,6 +62,7 @@ numberColumns   Maximum number of columns in the legend.
     public void setDiameter(Integer diameter) {
         this.diameter = diameter;
     }
+
     public Integer getPadding() {
         return padding;
     }
@@ -66,6 +73,7 @@ numberColumns   Maximum number of columns in the legend.
     public void setPadding(Integer padding) {
         this.padding = padding;
     }
+
     public Integer getSliceMargin() {
         return sliceMargin;
     }
@@ -76,6 +84,7 @@ numberColumns   Maximum number of columns in the legend.
     public void setSliceMargin(Integer sliceMargin) {
         this.sliceMargin = sliceMargin;
     }
+
     public Boolean getFill() {
         return fill;
     }
@@ -86,6 +95,7 @@ numberColumns   Maximum number of columns in the legend.
     public void setFill(Boolean fill) {
         this.fill = fill;
     }
+
     public Boolean getShowDataLabels() {
         return showDataLabels;
     }
@@ -96,6 +106,44 @@ numberColumns   Maximum number of columns in the legend.
     public void setShowDataLabels(Boolean showDataLabels) {
         this.showDataLabels = showDataLabels;
     }
+
+    public String[] getDataLabels() {
+        return dataLabels;
+    }
+    /**
+     * Sets either ‘label’, ‘value’, ‘percent’ or an array of labels to place
+     * on the pie slices.  Defaults to percentage of each pie slice.
+     * @param dataLabels
+     */
+    public void setDataLabels(String... dataLabels) {
+        this.dataLabels = dataLabels;
+    }
+
+    public Float getDataLabelPositionFactor() {
+        return dataLabelPositionFactor;
+    }
+    /**
+     * Sets a Multiplier (0-1) of the pie radius which controls position of 
+     * label on slice.  Increasing will slide label toward edge of pie, 
+     * decreasing will slide label toward center of pie.
+     * @param dataLabelPositionFactor slice label position multiplier
+     */
+    public void setDataLabelPositionFactor(Float dataLabelPositionFactor) {
+        this.dataLabelPositionFactor = dataLabelPositionFactor;
+    }
+
+    public Boolean getDataLabelCenterOn() {
+        return dataLabelCenterOn;
+    }
+    /**
+     * Whether to center the data label at its position. False to set the inside
+     * facing edge of the label at its position.
+     * @param dataLabelCenterOn true to center the data label at its position
+     */
+    public void setDataLabelCenterOn(Boolean dataLabelCenterOn) {
+        this.dataLabelCenterOn = dataLabelCenterOn;
+    }
+
     public Boolean getHighlightMouseOver() {
         return highlightMouseOver;
     }
@@ -106,17 +154,47 @@ numberColumns   Maximum number of columns in the legend.
     public void setHighlightMouseOver(Boolean highlightMouseOver) {
         this.highlightMouseOver = highlightMouseOver;
     }
+    
+    public Boolean getHighlightMouseDown() {
+        return highlightMouseDown;
+    }
+    /**
+     * Whether to highlight when a mouse button is pressed over a slice.  
+     * This will be disabled if highlightMouseOver is true.
+     * @param highlightMouseDown true to highlight when mouse button is pressed 
+     */
+    public void setHighlightMouseDown(Boolean highlightMouseDown) {
+        this.highlightMouseDown = highlightMouseDown;
+    }
+
+    public String[] getHighlightColors() {
+        return highlightColors;
+    }
+    /**
+     * Sets an array of colors to use when highlighting a slice.
+     * @param highlightColors an array of colors (HTML style)
+     */
+    public void setHighlightColors(String... highlightColors) {
+        this.highlightColors = highlightColors;
+    }
+    
+    
 
     @Override
     public String toString() {
         return new PlotToStringBuilder()
             .raw("animation", animation)
-            .integer("diameter", diameter)
-            .integer("padding", padding)
-            .integer("sliceMargin", sliceMargin)
+            .number("diameter", diameter)
+            .number("padding", padding)
+            .number("sliceMargin", sliceMargin)
             .bool("fill", fill)
             .bool("showDataLabels", showDataLabels)
+            .stringArray("dataLabels", dataLabels)
+            .decimal("dataLabelPositionFactor", dataLabelPositionFactor)
+            .bool("dataLabelCenterOn ", dataLabelCenterOn )
             .bool("highlightMouseOver", highlightMouseOver)
+            .bool("highlightMouseDown", highlightMouseDown)
+            .stringArray("highlightColors", highlightColors)
             .toString();
     }
 }

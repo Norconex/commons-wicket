@@ -33,7 +33,7 @@ public class AnimationOptions implements ISeriesRendererOptions {
         return new PlotToStringBuilder()
             .bool("show", show)
             .string("direction", direction)
-            .integer("speed", speed)
+            .number("speed", speed)
             .toString();
     }
 }

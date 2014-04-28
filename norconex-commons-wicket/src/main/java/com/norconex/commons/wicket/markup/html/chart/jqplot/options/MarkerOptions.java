@@ -84,13 +84,13 @@ public class MarkerOptions implements Serializable {
         return new PlotToStringBuilder()
             .bool("show", show)
             .string("style", style)
-            .integer("lineWidth", lineWidth)
-            .integer("size", size)
+            .number("lineWidth", lineWidth)
+            .number("size", size)
             .string("color", color)
             .bool("shadow", shadow)
-            .integer("shadowAngle", shadowAngle)
-            .integer("shadowOffset", shadowOffset)
-            .integer("shadowDepth", shadowDepth)
+            .number("shadowAngle", shadowAngle)
+            .number("shadowOffset", shadowOffset)
+            .number("shadowDepth", shadowDepth)
             .decimal("shadowAlpha", shadowAlpha)
             .toString();
     }
