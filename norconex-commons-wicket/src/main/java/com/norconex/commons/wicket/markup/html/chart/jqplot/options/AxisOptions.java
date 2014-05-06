@@ -30,9 +30,17 @@ public class AxisOptions implements Serializable {
     public static final String DATE_AXIS_RENDERER = "$.jqplot.DateAxisRenderer";
 
     /**
-     * A “tick�? object showing the value of a tick/gridline on the plot.
+     * A "tick" object showing the value of a tick/gridline on the plot.
      */
     public static final String AXIS_TICK_RENDERER = "$.jqplot.AxisTickRenderer";
+    
+    /**
+     * Renderer to draw axis ticks with a canvas element to support advanced 
+     * features such as rotated text.
+     */
+    public static final String CANVAS_AXIS_TICK_RENDERER = 
+            "$.jqplot.CanvasAxisTickRenderer";
+    
     
     private Boolean show;
     private String min;

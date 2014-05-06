@@ -9,6 +9,7 @@ public class TickOptions implements Serializable {
 
     public enum Mark { outside, inside, cross };
     
+    private Integer angle;
     private Mark mark;
     private Boolean showMark;
     private Boolean showGridline;
@@ -16,6 +17,55 @@ public class TickOptions implements Serializable {
     private Boolean show;
     private Boolean showLabel;
     private String formatString;
+    private Boolean enableFontSupport;
+    private String fontFamily;
+    private String fontSize;
+
+    
+    
+    public String getFontFamily() {
+        return fontFamily;
+    }
+    /**
+     * Sets css spec for the font-family css attribute.
+     * @param fontFamily font family
+     */
+    public void setFontFamily(String fontFamily) {
+        this.fontFamily = fontFamily;
+    }
+    public String getFontSize() {
+        return fontSize;
+    }
+    /**
+     * Sets CSS spec for font size.
+     * @param fontSize font size
+     */
+    public void setFontSize(String fontSize) {
+        this.fontSize = fontSize;
+    }
+    
+    public Boolean getEnableFontSupport() {
+        return enableFontSupport;
+    }
+    /**
+     * Sets whether to turn on native canvas font support in Mozilla 3.5+ and 
+     * Safari 4+. 
+     * @param enableFontSupport <code>true</code> to turn on
+     */
+    public void setEnableFontSupport(Boolean enableFontSupport) {
+        this.enableFontSupport = enableFontSupport;
+    }
+
+    public Integer getAngle() {
+        return angle;
+    }
+    /**
+     * Sets angle of text, measured clockwise from x axis.
+     * @param angle angle of text
+     */
+    public void setAngle(Integer angle) {
+        this.angle = angle;
+    }
 
     public Mark getMark() {
         return mark;
@@ -28,6 +78,7 @@ public class TickOptions implements Serializable {
     public void setMark(Mark mark) {
         this.mark = mark;
     }
+
     public Boolean getShowMark() {
         return showMark;
     }
@@ -96,10 +147,14 @@ public class TickOptions implements Serializable {
             .enumString("mark", mark)
             .bool("showMark", showMark)
             .bool("showGridline", showGridline)
+            .number("angle", angle)
             .number("markSize", markSize)
             .bool("show", show)
             .bool("showLabel", showLabel)
+            .bool("enableFontSupport", enableFontSupport)
             .string("formatString", formatString)
+            .string("fontSize", fontSize)
+            .string("fontFamily", fontFamily)
             .toString();
     }
 }
