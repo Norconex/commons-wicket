@@ -6,9 +6,6 @@ import org.apache.wicket.extensions.ajax.markup.html.repeater.data.table.AjaxFal
 import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.ISortableDataProvider;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.NoRecordsToolbar;
-import org.apache.wicket.markup.repeater.Item;
-import org.apache.wicket.markup.repeater.OddEvenItem;
-import org.apache.wicket.model.IModel;
 
 public class BootstrapAjaxDataTable<T, S> 
         extends BootstrapDataTable<T, S> {
@@ -29,11 +26,5 @@ public class BootstrapAjaxDataTable<T, S>
         addTopToolbar(new AjaxFallbackHeadersToolbar<>(this, dataProvider));
         addBottomToolbar(new NoRecordsToolbar(this));
         addBottomToolbar(new BootstrapAjaxNavigationToolbar(this, false));
-    }
-    
-    @Override
-    protected Item<T> newRowItem(
-            final String id, final int index, final IModel<T> model) {
-        return new OddEvenItem<T>(id, index, model);
     }
 }

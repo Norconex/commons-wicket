@@ -7,9 +7,6 @@ import org.apache.wicket.extensions.markup.html.repeater.data.table.HeadersToolb
 import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.ISortableDataProvider;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.NoRecordsToolbar;
-import org.apache.wicket.markup.repeater.Item;
-import org.apache.wicket.markup.repeater.OddEvenItem;
-import org.apache.wicket.model.IModel;
 
 public class BootstrapDataTable<T, S> extends DataTable<T, S> {
 
@@ -29,12 +26,4 @@ public class BootstrapDataTable<T, S> extends DataTable<T, S> {
         addBottomToolbar(new NoRecordsToolbar(this));
         addBottomToolbar(new BootstrapNavigationToolbar(this, false));
     }
-
-    @Override
-    protected Item<T> newRowItem(
-            final String id, final int index, final IModel<T> model) {
-        return new OddEvenItem<T>(id, index, model);
-    }
-
-
 }
