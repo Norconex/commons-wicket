@@ -1,4 +1,4 @@
-package com.norconex.commons.wicket.bootstrap.markup.html.table;
+package com.norconex.commons.wicket.bootstrap.table;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.DataTable;

@@ -1,4 +1,4 @@
-package com.norconex.commons.wicket.bootstrap.behaviors.tooltip;
+package com.norconex.commons.wicket.bootstrap;
 
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.Component;

@@ -1,10 +1,10 @@
-package com.norconex.commons.wicket.bootstrap.markup.html.table;
+package com.norconex.commons.wicket.bootstrap.table;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.AbstractColumn;
 import org.apache.wicket.model.IModel;
 
-import com.norconex.commons.wicket.bootstrap.behaviors.tooltip.BootstrapTooltip;
+import com.norconex.commons.wicket.bootstrap.BootstrapTooltip;
 
 
 public abstract class BootstrapTooltipColumn<T, S> 
