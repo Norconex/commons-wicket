@@ -8,6 +8,7 @@ import org.apache.wicket.markup.ComponentTag;
 
 import com.norconex.commons.wicket.behaviors.CssClass;
 
+@SuppressWarnings("nls")
 public class BootstrapSelect extends Behavior {
 
     private static final long serialVersionUID = 947132455990206834L;
@@ -22,7 +23,6 @@ public class BootstrapSelect extends Behavior {
         this.options = StringUtils.trimToEmpty(options);
     }
 
-    @SuppressWarnings("nls")
     @Override
     public void bind(Component component) {
         component.add(new CssClass("selectpicker"));
