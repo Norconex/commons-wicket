@@ -12,11 +12,15 @@ public class BootstrapModalLauncher extends Behavior {
     
     private static final long serialVersionUID = -813364365368794670L;
 
-    private final BootstrapModal modal;
+    private final String modalId;
     
     public BootstrapModalLauncher(BootstrapModal modal) {
         super();
-        this.modal = modal;
+        this.modalId = modal.getBorder().getMarkupId();
+    }
+    public BootstrapModalLauncher(BootstrapModalBorder modal) {
+        super();
+        this.modalId = modal.getMarkupId();
     }
     
     @Override
@@ -24,7 +28,7 @@ public class BootstrapModalLauncher extends Behavior {
         super.bind(component);
         component.add(new AttributeModifier("data-toggle", "modal"));
         component.add(new AttributeModifier(
-                "data-target", "#" + modal.getMarkupId()));
+                "data-target", "#" + modalId));
     }
 
     @Override

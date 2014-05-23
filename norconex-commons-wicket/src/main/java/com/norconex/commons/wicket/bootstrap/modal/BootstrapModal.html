@@ -3,31 +3,9 @@
 <body>
 <wicket:panel>
 
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close nobusy" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" wicket:id="modalTitle">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <div wicket:id="body">Body</div>
-      </div>
-      <div class="modal-footer">
-        <div wicket:id="footerFragment">Footer</div>
-        <wicket:fragment wicket:id="defaultFooter">
-          <button type="button" class="btn btn-default nobusy" 
-                  data-dismiss="modal">Close</button>
-        </wicket:fragment>
-        <wicket:fragment wicket:id="providedFooter">
-          <div wicket:id="customFooter"></div>
-        </wicket:fragment>
-        <!-- 
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-         -->
-      </div>
-    </div>
-  </div>
+<div wicket:id="modal">
+  <wicket:container wicket:id="content">Content</wicket:container>
+</div>
 
 </wicket:panel>
 </body>
