@@ -7,7 +7,7 @@
   <description>Extra components and utilities to complement the Apache Wicket framework.</description>
 
   <properties>
-    <wicket.version>6.13.0</wicket.version>
+    <wicket.version>6.15.0</wicket.version>
     <wicket-jquery.version>6.12.0</wicket-jquery.version>
   </properties>
 
@@ -37,6 +37,11 @@
         <dependency>
             <groupId>org.apache.wicket</groupId>
             <artifactId>wicket-extensions</artifactId>
+            <version>${wicket.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket-velocity</artifactId>
             <version>${wicket.version}</version>
         </dependency>
         <dependency>
