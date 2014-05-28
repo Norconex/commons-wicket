@@ -18,14 +18,14 @@ public class UpdatingCheckbox extends CheckBox {
 
     public UpdatingCheckbox(String id, IModel<Boolean> model) {
         super(id, model);
-        init();
     }
     public UpdatingCheckbox(String id) {
         super(id);
-        init();
     }
 
-    private void init() {
+    @Override
+    protected void onInitialize() {
+        super.onInitialize();
         add(new OnChangeAjaxBehavior() {
             private static final long serialVersionUID = 2483719054190303122L;
             @Override

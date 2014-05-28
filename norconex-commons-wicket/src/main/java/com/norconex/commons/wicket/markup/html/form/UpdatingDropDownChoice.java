@@ -23,41 +23,33 @@ public class UpdatingDropDownChoice<T> extends DropDownChoice<T> {
             IModel<? extends List<? extends T>> choices,
             IChoiceRenderer<? super T> renderer) {
         super(id, choices, renderer);
-        init();
     }
     public UpdatingDropDownChoice(String id, IModel<T> model,
             IModel<? extends List<? extends T>> choices,
             IChoiceRenderer<? super T> renderer) {
         super(id, model, choices, renderer);
-        init();
     }
     public UpdatingDropDownChoice(String id, IModel<T> model,
             IModel<? extends List<? extends T>> choices) {
         super(id, model, choices);
-        init();
     }
     public UpdatingDropDownChoice(String id, IModel<T> model,
             List<? extends T> data, IChoiceRenderer<? super T> renderer) {
         super(id, model, data, renderer);
-        init();
     }
     public UpdatingDropDownChoice(String id, IModel<T> model,
             List<? extends T> choices) {
         super(id, model, choices);
-        init();
     }
     public UpdatingDropDownChoice(String id, List<? extends T> data,
             IChoiceRenderer<? super T> renderer) {
         super(id, data, renderer);
-        init();
     }
     public UpdatingDropDownChoice(String id, List<? extends T> choices) {
         super(id, choices);
-        init();
     }
     public UpdatingDropDownChoice(String id) {
         super(id);
-        init();
     }
 
     /**
@@ -69,9 +61,10 @@ public class UpdatingDropDownChoice<T> extends DropDownChoice<T> {
         // does nothing by default
     }
     
-    
-    private void init() {
-        add(new AjaxFormComponentUpdatingBehavior("onchange") { //$NON-NLS-1$
+    @Override
+    protected void onInitialize() {
+        super.onInitialize();
+        add(new AjaxFormComponentUpdatingBehavior("onchange") {
             private static final long serialVersionUID = -1443172413260581043L;
             @Override
             protected void onUpdate(AjaxRequestTarget target) {
