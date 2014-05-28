@@ -27,6 +27,15 @@
         </configuration>
       </plugin>
     </plugins>
+	<resources>
+		<!-- Include all resources (.css, .js, etc) except java files -->
+        <resource>
+            <directory>${project.build.sourceDirectory}</directory>
+            <excludes>
+               	<exclude>**/*.java</exclude>
+            </excludes>
+        </resource>
+    </resources>
   </build>
   <dependencies>
       <dependency>
