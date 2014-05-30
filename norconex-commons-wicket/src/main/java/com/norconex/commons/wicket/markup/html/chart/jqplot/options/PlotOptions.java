@@ -79,7 +79,7 @@ public class PlotOptions implements Serializable {
     }
     /**
      * Gets the plot series.
-     * @param series plot series
+     * @return plot series
      */
     public List<SeriesOptions> getSeries() {
         return series;

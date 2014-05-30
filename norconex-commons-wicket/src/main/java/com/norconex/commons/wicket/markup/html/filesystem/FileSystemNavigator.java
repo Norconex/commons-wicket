@@ -107,7 +107,7 @@ public class FileSystemNavigator extends CssPanel {
     /**
      * Gets all files currently selected, or an empty array if no files are 
      * selected (this method is null-safe).
-     * @return
+     * @return selected files
      */
     public File[] getSelectedFiles() {
         return content.getSelectedFiles();

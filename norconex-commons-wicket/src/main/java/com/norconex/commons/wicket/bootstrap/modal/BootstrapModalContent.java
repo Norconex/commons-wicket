@@ -19,9 +19,9 @@ public abstract class BootstrapModalContent extends Panel {
     protected void onInitialize() {
         super.onInitialize();
         setOutputMarkupId(true);
-        add(createHeaderComponent("header"));
-        add(createBodyComponent("body"));
-        add(createFooterComponent("footer"));
+        addOrReplace(createHeaderComponent("header"));
+        addOrReplace(createBodyComponent("body"));
+        addOrReplace(createFooterComponent("footer"));
     }
 
     protected String getCssClass() {

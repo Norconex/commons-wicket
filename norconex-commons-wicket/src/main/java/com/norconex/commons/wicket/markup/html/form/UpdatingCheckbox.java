@@ -10,7 +10,6 @@ import org.apache.wicket.model.IModel;
  * change.  
  * @author Pascal Essiembre
  *
- * @param <T> The underlying model object type
  */
 public class UpdatingCheckbox extends CheckBox {
 

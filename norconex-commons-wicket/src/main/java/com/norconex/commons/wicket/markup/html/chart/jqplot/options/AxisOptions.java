@@ -80,7 +80,7 @@ public class AxisOptions implements Serializable {
     }
     /**
      * Sets the minimum numerical value of the axis.  Determined automatically.
-     * @param max minimum value of the axis
+     * @param min minimum value of the axis
      */
     public void setMin(int min) {
         this.min = Integer.toString(min);
