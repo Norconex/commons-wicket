@@ -2,6 +2,7 @@ package com.norconex.commons.wicket;
 
 import java.io.Serializable;
 
+import org.apache.commons.lang3.SystemUtils;
 import org.apache.wicket.Application;
 import org.apache.wicket.Session;
 import org.apache.wicket.ThreadContext;
@@ -35,7 +36,7 @@ public class ThreadContextMocker implements Serializable {
         ThreadContext.setApplication(application);
         ThreadContext.setSession(session);
         final MockServletContext context = 
-                new MockServletContext(application, "/mock");
+                new MockServletContext(application, SystemUtils.JAVA_IO_TMPDIR);
         ThreadContext.setRequestCycle(
             application.createRequestCycle(new MockWebRequest(
                     Url.parse("http://localhost/mock")) {
