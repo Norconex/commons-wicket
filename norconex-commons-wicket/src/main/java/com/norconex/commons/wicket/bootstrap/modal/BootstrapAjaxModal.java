@@ -19,6 +19,10 @@ public abstract class BootstrapAjaxModal extends BootstrapModal {
         super(id, title);
     }
 
+    public String getModalId() {
+        return getBorder().getMarkupId();
+    }
+    
     @Override
     protected void onBeforeRender() {
         getBorder().addOrReplace(createContentComponent("content"));
@@ -60,10 +64,10 @@ public abstract class BootstrapAjaxModal extends BootstrapModal {
         loadContent = true;
         target.add(this);
         target.appendJavaScript(
-                "$('#" + getBorder().getMarkupId() + "').modal('show');");
+                "$('#" + getModalId() + "').modal('show');");
     }
     public void hide(AjaxRequestTarget target) {
         target.appendJavaScript(
-                "$('#" + getBorder().getMarkupId() + "').modal('hide');");
+                "$('#" + getModalId() + "').modal('hide');");
     }
 }
