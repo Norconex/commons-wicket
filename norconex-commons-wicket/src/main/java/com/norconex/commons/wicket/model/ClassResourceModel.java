@@ -10,7 +10,7 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.resource.loader.IStringResourceLoader;
 
 //TODO test that it supports both class and package or rename accordingly.
-public class ClassStringResourceModel extends LoadableDetachableModel<String> {
+public class ClassResourceModel extends LoadableDetachableModel<String> {
 
     private static final long serialVersionUID = 1469043504243509193L;
 
@@ -18,10 +18,10 @@ public class ClassStringResourceModel extends LoadableDetachableModel<String> {
     private String key;
     private Locale locale;
     
-    public ClassStringResourceModel(Class<?> klass, String key) {
+    public ClassResourceModel(Class<?> klass, String key) {
         this(klass, key, null);
     }
-    public ClassStringResourceModel(
+    public ClassResourceModel(
             Class<?> klass, String key, Locale locale) {
         this.klass = klass;
         this.key = key;

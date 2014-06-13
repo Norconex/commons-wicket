@@ -7,7 +7,7 @@ import org.apache.wicket.Session;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.util.io.IClusterable;
 
-import com.norconex.commons.wicket.model.ClassStringResourceModel;
+import com.norconex.commons.wicket.model.ClassResourceModel;
 import com.norconex.commons.wicket.resource.loader.StringResourceLoaderUtil;
 
 public abstract class WicketClass implements IClusterable {
@@ -28,9 +28,9 @@ public abstract class WicketClass implements IClusterable {
         return StringResourceLoaderUtil.getString(getClass(), key, locale);
     }
     public IModel<String> getStringModel(String key) {
-        return new ClassStringResourceModel(getClass(), key);
+        return new ClassResourceModel(getClass(), key);
     }
     public IModel<String> getStringModel(String key, Locale locale) {
-        return new ClassStringResourceModel(getClass(), key, locale);
+        return new ClassResourceModel(getClass(), key, locale);
     }
 }
