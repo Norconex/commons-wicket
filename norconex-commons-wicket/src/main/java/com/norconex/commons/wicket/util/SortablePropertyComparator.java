@@ -13,7 +13,11 @@ public class SortablePropertyComparator<T, S>
     private static final long serialVersionUID = -9154386928818508608L;
 
     private final SortParam<S> sortParam;
-    
+
+    public SortablePropertyComparator(S property, boolean ascending) {
+        this(new SortParam<S>(property, ascending));
+    }
+
     public SortablePropertyComparator(SortParam<S> sortParam) {
         super();
         this.sortParam = sortParam;
