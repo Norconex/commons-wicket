@@ -13,14 +13,19 @@ public class BootstrapSelect extends Behavior {
 
     private static final long serialVersionUID = 947132455990206834L;
     private final String options;
-
+    private final String onChangeJavascript;
+    
     public BootstrapSelect() {
         this(null);
     }
     //TODO have accessors for supported options instead
     public BootstrapSelect(String options) {
+        this(options, null);
+    }
+    public BootstrapSelect(String options, String onChangeJavascript) {
         super();
         this.options = StringUtils.trimToEmpty(options);
+        this.onChangeJavascript = onChangeJavascript;
     }
 
     @Override
@@ -39,8 +44,14 @@ public class BootstrapSelect extends Behavior {
     
     @Override
     public void afterRender(Component component) {
-        component.getResponse().write("<script>$('#"
+        String js = "<script>$('#"
                 + component.getMarkupId() + "').selectpicker("
-                + options + ");</script>");
+                + options + ");";
+        if (StringUtils.isNotBlank(onChangeJavascript)) {
+            js += "$('#" + component.getMarkupId() + "').change(function() {"
+                    + onChangeJavascript + "});";
+        }
+        js += "</script>";
+        component.getResponse().write(js);
     }
 }
