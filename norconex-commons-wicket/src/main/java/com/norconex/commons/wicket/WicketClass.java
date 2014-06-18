@@ -20,7 +20,6 @@ public abstract class WicketClass implements IClusterable {
     public Application getApplication() {
         return Application.get();
     }
- 
     public String getString(String key) {
         return getString(key, Session.get().getLocale());
     }
@@ -32,5 +31,8 @@ public abstract class WicketClass implements IClusterable {
     }
     public IModel<String> getStringModel(String key, Locale locale) {
         return new ClassResourceModel(getClass(), key, locale);
+    }
+    public Locale getLocale() {
+        return getSession().getLocale();
     }
 }
