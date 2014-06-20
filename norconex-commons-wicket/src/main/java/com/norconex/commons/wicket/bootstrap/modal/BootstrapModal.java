@@ -11,18 +11,37 @@ public abstract class BootstrapModal extends CssPanel {
     private static final long serialVersionUID = -8150141940905259147L;
     
     private final IModel<String> title;
-    private final BootstrapModalBorder border = 
-            new BootstrapModalBorder("modal");
-    
-    public BootstrapModal(String id, IModel<String> title, IModel<?> model) {
-        super(id, model);
-        this.title = title;
+    private final BootstrapModalBorder border;
+
+    public BootstrapModal(
+            String id, IModel<String> title, IModel<?> model) {
+        this(id, title, model, false);
     }
     public BootstrapModal(String id, IModel<String> title) {
-        super(id);
+        this(id, title, false);
+    }
+    public BootstrapModal(String id, IModel<String> title, boolean large) {
+        this(id, title, null, large);
+    }
+    public BootstrapModal(
+            String id, IModel<String> title, IModel<?> model, 
+            final boolean large) {
+        super(id, model);
         this.title = title;
+        border = new BootstrapModalBorder("modal") {
+            private static final long serialVersionUID = 7656456202026766595L;
+            protected String getDialogCssClass() {
+                String css = super.getDialogCssClass();
+                if (large) {
+                    css += " modal-lg";
+                }
+                return css;
+            };
+        };
     }
 
+
+    
     public BootstrapModalBorder getBorder() {
         return border;
     }
@@ -33,10 +52,6 @@ public abstract class BootstrapModal extends CssPanel {
         setOutputMarkupId(true);
         border.add(createContentComponent("content"));
         add(border);
-    }
-
-    protected String getCssClass() {
-        return "modal fade";
     }
 
     public IModel<String> getTitle() {

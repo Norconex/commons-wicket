@@ -11,6 +11,13 @@ public abstract class BootstrapAjaxModal extends BootstrapModal {
 
     private boolean loadContent = false;
     
+    public BootstrapAjaxModal(String id, IModel<String> title, boolean large) {
+        super(id, title, large);
+    }
+    public BootstrapAjaxModal(String id, IModel<String> title, IModel<?> model,
+            boolean large) {
+        super(id, title, model, large);
+    }
     public BootstrapAjaxModal(
             String id, IModel<String> title, IModel<?> model) {
         super(id, title, model);
