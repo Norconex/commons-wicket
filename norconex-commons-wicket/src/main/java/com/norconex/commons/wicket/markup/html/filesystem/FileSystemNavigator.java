@@ -12,7 +12,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.util.SetModel;
 
-import com.norconex.commons.wicket.markup.html.dialog.FileSystemDialog;
+import com.norconex.commons.wicket.bootstrap.filesystem.BootstrapFileSystemDialog;
 import com.norconex.commons.wicket.markup.html.panel.CssPanel;
 
 /**
@@ -22,9 +22,9 @@ import com.norconex.commons.wicket.markup.html.panel.CssPanel;
  * allow only one folder/file selection.  To change the starting directory,
  * you can supply your own instance of a {@link FileSystemTreeProvider}.
  * To allow for multiple selections, call the 
- * {@link #setFileSystemContent(FileSystemContent)} method with an instance
- * of {@link MultiSelectableFolderContent}.
- * @see FileSystemDialog
+ * {@link #setFileSystemContent(IFileSystemContent)} method with an instance
+ * of {@link MultiSelectableContent}.
+ * @see BootstrapFileSystemDialog
  * @author Pascal Essiembre
  */
 @SuppressWarnings("nls")
@@ -33,7 +33,7 @@ public class FileSystemNavigator extends CssPanel {
     private static final long serialVersionUID = -1426312420899669373L;
 
     private NestedTree<File> tree;
-    private FileSystemContent content;
+    private IFileSystemContent content;
     
     /**
      * Creates a single-select navigator starting in the application
@@ -55,42 +55,55 @@ public class FileSystemNavigator extends CssPanel {
                 ? new Model<ITreeProvider<File>>(
                         new FileSystemTreeProvider()): model);
         setOutputMarkupId(true);
-        content = new SelectableFolderContent(getTreeProvider());
+        content = new SelectableContent(getTreeProvider());
     }
     
     /**
      * Gets the content component used to render nodes.
      * @return content component
      */
-    public FileSystemContent getFileSystemContent() {
+    public IFileSystemContent getFileSystemContent() {
         return content;
     }
     /**
      * Sets the content component used to render nodes.
      * @param content the content component
      */
-    public void setFileSystemContent(FileSystemContent content) {
+    public void setFileSystemContent(IFileSystemContent content) {
         this.content = content;
     }
     
     @Override
     protected void onBeforeRender() {
-        final FileSystemTreeProvider treeProvider = getTreeProvider();
-        IModel<Set<File>> model = new SetModel<File>(new HashSet<File>());
-        tree = new DefaultNestedTree<File>("navigator", treeProvider, model) {
+//        final FileSystemTreeProvider treeProvider = getTreeProvider();
+//        IModel<Set<File>> model = new SetModel<File>(new HashSet<File>());
+        
+        tree = createTree(new SetModel<File>(new HashSet<File>()));
+//                new DefaultNestedTree<File>("navigator", treeProvider, model) {
+//            private static final long serialVersionUID = -6251279132840692219L;
+//            @Override
+//            protected Component newContentComponent(
+//                    String id, IModel<File> node) {
+//                return getFileSystemContent().newContentComponent(
+//                        id, tree, node);
+//            }
+//        }; 
+        addOrReplace(tree);
+        super.onBeforeRender();
+    }
+    
+    protected NestedTree<File> createTree(IModel<Set<File>> model) {
+        return new DefaultNestedTree<File>(
+                "navigator", getTreeProvider(), model) {
             private static final long serialVersionUID = -6251279132840692219L;
             @Override
             protected Component newContentComponent(
                     String id, IModel<File> node) {
                 return getFileSystemContent().newContentComponent(
-                        id, tree, node);
+                        id, this, node);
             }
-            
-        }; 
-        addOrReplace(tree);
-        super.onBeforeRender();
+        };
     }
-    
     
     /**
      * Gets the file currently selected.  In the event of multiple selections,

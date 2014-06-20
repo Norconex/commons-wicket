@@ -1,0 +1,131 @@
+
+/* --- FileSystem Navigator ------------------------------------------------- */
+
+.nx-commons-fsnav .nx-commons-fsnav-folder-closed {
+  width: 180px;
+}
+.nx-commons-fsnav .nx-commons-fsnav-folder-closed > span:before {
+  font-family: 'FontAwesome';
+  xxcontent: "\f114\00A0";    
+  content: "\f07b\00A0";    
+  
+}
+.nx-commons-fsnav .nx-commons-fsnav-folder-open > span:before {
+  font-family: 'FontAwesome';
+  xxcontent: "\f115\00A0";    
+  content: "\f07c\00A0";    
+}
+
+.nx-commons-fsnav .nx-commons-fsnav-file > span:before {
+  font-family: 'FontAwesome';
+  content: "\f016\00A0";    
+}
+
+.nx-commons-fsnav .nx-commons-fsnav-node-collapsed {
+  display:block;
+  float:left;
+}
+.nx-commons-fsnav .nx-commons-fsnav-node-collapsed:after {
+  background-image: none;
+  text-decoration:none;
+  font-family: 'FontAwesome';
+  content: "\f0da";    
+}
+.nx-commons-fsnav .nx-commons-fsnav-node-expanded {
+  display:block;
+  float:left;
+  width: 18px;
+}
+.nx-commons-fsnav .nx-commons-fsnav-node-expanded:after {
+  background-image: none;
+  text-decoration:none;
+  font-family: 'FontAwesome';
+  content: "\f0d7";    
+}
+
+.nx-commons-fsnav span.tree-junction {
+  display: block;
+  float: left;
+  width: 18px;
+}
+.nx-commons-fsnav div.tree-subtree {
+  margin: 0px 0px 0px 18px;
+  padding: 0px;
+}
+.nx-commons-fsnav div.tree-branch {
+  margin: 0px;
+  padding: 0px;
+}
+.nx-commons-fsnav span.tree-content {
+  display: block;
+  margin-left: 18px;
+}
+
+.nx-commons-fsnav div.tree-node:hover,
+.nx-commons-fsnav div.tree-node:focus {
+  background-color: #f5f5f5;
+  color: #2a6496;
+}
+
+.nx-commons-fsnav div.tree-node.active,
+.nx-commons-fsnav div.tree-node.active {
+  z-index: 2;
+  background-color: #428BCA;
+  border-color: #428BCA;
+}
+
+.nx-commons-fsnav span.tree-label {
+  display: inline-block;
+  width: 100%;
+}
+
+.nx-commons-fsnav div.tree-node a {
+  color: #428BCA;
+}
+.nx-commons-fsnav div.tree-node.active a {
+  color: #FFF;
+}
+
+
+/* --- FileSystem Dialog ---------------------------------------------------- */
+
+.nx-commons-fsdlg .nx-commons-fsnav {
+  max-height: 300px;
+  overflow: auto;
+  border: 1px solid #DDD;
+  font-size: small;
+  padding: 5px;
+}
+.nx-commons-fsdlg .nx-commons-fsnav div.tree-node a {
+  color: #555;
+}
+.nx-commons-fsdlg .nx-commons-fsnav div.tree-node.active a {
+  color: #FFF;
+}
+
+.nx-commons-fsdlg .modal-body {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.nx-commons-fsdlg .modal-body .row {
+  margin-bottom: 10px;
+}
+
+.nx-commons-fsdlg .modal-footer .btn {
+  width: 120px;
+}
+
+.nx-commons-fsdlg .nx-commons-fsdlg-toolbar a.btn {
+  display: inline-block;
+  width: 100px;
+  margin-right: 5px;
+}
+
+.nx-commons-fsdlg .feedbackPanel span.feedbackPanelERROR:before {
+  font-family: 'FontAwesome';
+  content: "\f071\00A0";   
+}
+.nx-commons-fsdlg .feedbackPanel {
+  margin-top: 20px;
+  font-size: medium;
+}

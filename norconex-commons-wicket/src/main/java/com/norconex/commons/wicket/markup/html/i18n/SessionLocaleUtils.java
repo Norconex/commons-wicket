@@ -66,6 +66,7 @@ public final class SessionLocaleUtils {
     /**
      * Gets the locale from a cookie.  If the cookie does not have the locale
      * set, returns null.
+     * @returns locale from cookie
      */
     public static Locale getCookieLocale() {
         return getCookieLocale(null);
@@ -73,7 +74,7 @@ public final class SessionLocaleUtils {
     /**
      * Gets the locale from a cookie.  If the cookie does not have the locale
      * set, returns the default locale.
-     * @param defaultLoale default local when no cookie locale is set
+     * @param defaultLocale default local when no cookie locale is set
      */
     public static Locale getCookieLocale(Locale defaultLocale) {
         String localeStr = new CookieUtils().load(COOKIE_LOCALE_KEY);

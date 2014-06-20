@@ -39,6 +39,10 @@ public abstract class BootstrapModal extends CssPanel {
         return "modal fade";
     }
 
+    public IModel<String> getTitle() {
+        return title;
+    }
+    
     protected Component createContentComponent(String markupId) {
         return new BootstrapModalContent(markupId) {
             private static final long serialVersionUID = 5962119343584469411L;

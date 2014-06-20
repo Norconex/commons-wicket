@@ -49,9 +49,6 @@ public class ClassResourceModel extends LoadableDetachableModel<String> {
 
     @Override
     public void detach() {
-//        klass = null;
-//        key = null;
-//        locale = null;
         super.detach();
     }
 }

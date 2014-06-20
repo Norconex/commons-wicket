@@ -19,12 +19,12 @@ import org.apache.wicket.model.Model;
  * @see FileSystemNavigator
  */
 @SuppressWarnings("nls")
-public class MultiSelectableFolderContent extends FileSystemContent {
+public class MultiSelectableContent implements IFileSystemContent {
 
     private static final long serialVersionUID = -3165901195537601203L;
     private ProviderSubset<File> selected;
 
-    public MultiSelectableFolderContent(ITreeProvider<File> provider) {
+    public MultiSelectableContent(ITreeProvider<File> provider) {
         selected = new ProviderSubset<File>(provider, false);
     }
 
@@ -33,11 +33,13 @@ public class MultiSelectableFolderContent extends FileSystemContent {
         selected.detach();
     }
 
-    protected boolean isSelected(File file) {
+    @Override
+    public boolean isSelected(File file) {
         return selected.contains(file);
     }
 
-    protected void toggle(
+    @Override
+    public void nodeClicked(
            File file, AbstractTree<File> tree, final AjaxRequestTarget target) {
         if (isSelected(file)) {
             selected.remove(file);
@@ -59,11 +61,11 @@ public class MultiSelectableFolderContent extends FileSystemContent {
             }
             @Override
             protected void onClick(AjaxRequestTarget target) {
-                MultiSelectableFolderContent.this.toggle(getModelObject(), tree, target);
+                MultiSelectableContent.this.nodeClicked(getModelObject(), tree, target);
             }
             @Override
             protected boolean isSelected() {
-                return MultiSelectableFolderContent.this.isSelected(getModelObject());
+                return MultiSelectableContent.this.isSelected(getModelObject());
             }
             @Override
             protected IModel<String> newLabelModel(IModel<File> fileModel) {

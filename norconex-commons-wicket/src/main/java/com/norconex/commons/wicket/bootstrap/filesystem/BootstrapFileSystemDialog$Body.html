@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<wicket:head>
+</wicket:head>
+<body>
+<wicket:panel>
+
+<div class="container-fluid">
+
+  <div class="row nx-commons-fsdlg-toolbar">
+    <a wicket:id="home" class="btn btn-default btn-sm"><i class="fa fa-home"></i>
+      <wicket:message key="btn.home">Home</wicket:message>
+    </a>
+  
+    <a wicket:id="root" class="btn btn-default btn-sm"><i class="fa fa-terminal"></i>
+      <wicket:message key="btn.root">Root</wicket:message>
+    </a>
+  </div>
+
+  <div class="row">
+    <div wicket:id="navigatorWrapper">
+      <div wicket:id="fileSystemNavigator">
+         File System Navigator
+      </div>
+    </div>
+  </div>
+
+  <div class="row text-center">
+    <span wicket:id="feedback" class="text-danger">Feedback</span>
+  </div>
+
+</div>
+
+</wicket:panel>
+</body>
+</html>

@@ -17,13 +17,13 @@ import org.apache.wicket.model.Model;
  * @see FileSystemNavigator
  */
 @SuppressWarnings("nls")
-public class SelectableFolderContent extends FileSystemContent {
+public class SelectableContent implements IFileSystemContent {
 
     private static final long serialVersionUID = 302578782398184291L;
     private ITreeProvider<File> provider;
     private IModel<File> selected;
 
-    public SelectableFolderContent(ITreeProvider<File> provider) {
+    public SelectableContent(ITreeProvider<File> provider) {
         this.provider = provider;
     }
 
@@ -42,7 +42,8 @@ public class SelectableFolderContent extends FileSystemContent {
         return new File[]{};
     }
     
-    protected boolean isSelected(File file) {
+    @Override
+    public boolean isSelected(File file) {
         IModel<File> model = provider.model(file);
         try {
                 return selected != null && selected.equals(model);
@@ -51,7 +52,8 @@ public class SelectableFolderContent extends FileSystemContent {
         }
     }
     
-    protected void select(
+    @Override
+    public void nodeClicked(
            File file, AbstractTree<File> tree, final AjaxRequestTarget target) {
         if (selected != null) {
             tree.updateNode(selected.getObject(), target);
@@ -93,7 +95,7 @@ public class SelectableFolderContent extends FileSystemContent {
             
             @Override
             protected void onClick(AjaxRequestTarget target) {
-                SelectableFolderContent.this.select(
+                SelectableContent.this.nodeClicked(
                         getModelObject(), tree, target);
             }
 
@@ -104,7 +106,7 @@ public class SelectableFolderContent extends FileSystemContent {
             
             @Override
             protected boolean isSelected() {
-               return SelectableFolderContent.this.isSelected(getModelObject());
+               return SelectableContent.this.isSelected(getModelObject());
             }
             private boolean isDrive(File file) {
                 return file.getAbsolutePath().matches("\\w+:\\\\");

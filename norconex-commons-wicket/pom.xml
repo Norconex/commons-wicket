@@ -59,18 +59,6 @@
             <version>3.1</version>
         </dependency>
         <dependency>
-            <groupId>com.googlecode.wicket-jquery-ui</groupId>
-            <artifactId>wicket-jquery-ui</artifactId>
-            <version>${wicket-jquery.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.googlecode.wicket-jquery-ui</groupId>
-            <artifactId>wicket-kendo-ui</artifactId>
-            <version>${wicket-jquery.version}</version>
-        </dependency>
-        <!-- 
-         -->
-        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
