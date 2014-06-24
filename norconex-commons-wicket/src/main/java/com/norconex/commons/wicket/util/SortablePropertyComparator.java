@@ -36,4 +36,41 @@ public class SortablePropertyComparator<T, S>
         }
         return result;
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result
+                + ((sortParam == null) ? 0 : sortParam.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        SortablePropertyComparator<?, ?> other = 
+                (SortablePropertyComparator<?, ?>) obj;
+        if (sortParam == null) {
+            if (other.sortParam != null) {
+                return false;
+            }
+        } else if (!sortParam.equals(other.sortParam)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "SortablePropertyComparator [sortParam=" + sortParam + "]";
+    }
 }
