@@ -19,15 +19,15 @@ import org.apache.wicket.model.Model;
  * @author Pascal Essiembre
  */
 @SuppressWarnings("nls")
-public class SessionLocaleSelectionPanel extends LocaleDropDownChoice {
+public class SessionLocaleDropDownChoice extends LocaleDropDownChoice {
 
     private static final long serialVersionUID = -8075759492251053004L;
 
-    public SessionLocaleSelectionPanel(
+    public SessionLocaleDropDownChoice(
             String id, List<Locale> supportedLocales) {
         this(id, supportedLocales, null);
     }
-    public SessionLocaleSelectionPanel(String id, 
+    public SessionLocaleDropDownChoice(String id, 
             List<Locale> supportedLocales, Locale displayLocale) {
         super(id, getClosestLocale(supportedLocales),
                 supportedLocales, displayLocale);
