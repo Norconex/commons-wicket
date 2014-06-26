@@ -1,9 +1,11 @@
 
 /* --- FileSystem Navigator ------------------------------------------------- */
 
+/*
 .nx-commons-fsnav .nx-commons-fsnav-folder-closed {
   width: 180px;
 }
+*/
 .nx-commons-fsnav .nx-commons-fsnav-folder-closed > span:before {
   font-family: 'FontAwesome';
   xxcontent: "\f114\00A0";    
@@ -15,7 +17,6 @@
   xxcontent: "\f115\00A0";    
   content: "\f07c\00A0";    
 }
-
 .nx-commons-fsnav .nx-commons-fsnav-file > span:before {
   font-family: 'FontAwesome';
   content: "\f016\00A0";    

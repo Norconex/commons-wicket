@@ -50,11 +50,10 @@ public class BootstrapFileSystemFolder extends Folder<File> {
 
     @Override
     protected String getOtherStyleClass(File file) {
+        if (file.isDirectory() || isDrive(file)) {
+            return "nx-commons-fsnav-folder-closed";
+        }
         return "nx-commons-fsnav-file";
-//        if (file.isDirectory() || isDrive(file)) {
-//            return "fa fa-folder-o";
-//        }
-//        return super.getOtherStyleClass(file);
     }
     @Override
     protected String getClosedStyleClass() {
