@@ -1,5 +1,6 @@
 package com.norconex.commons.wicket.bootstrap.tooltip;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.Behavior;
@@ -14,6 +15,7 @@ public class BootstrapTooltip extends Behavior {
     
     private final IModel<String> text;
     private final Placement placement;
+    private String containerId;
     
     public BootstrapTooltip(String text) {
         this(text, Placement.AUTO);
@@ -29,7 +31,14 @@ public class BootstrapTooltip extends Behavior {
         this.text = text;
         this.placement = placement;
     }
-    
+
+    public String getContainerId() {
+        return containerId;
+    }
+    public BootstrapTooltip setContainerId(String containerId) {
+        this.containerId = containerId;
+        return this;
+    }
     @Override
     public void bind(Component component) {
         if (text != null) {
@@ -49,10 +58,15 @@ public class BootstrapTooltip extends Behavior {
     
     @Override
     public void afterRender(Component component) {
+        String componentId = "#" + component.getMarkupId();
+        String containerId = componentId;
+        if (StringUtils.isNotBlank(this.containerId)) {
+            containerId = this.containerId;
+        }
         if (text != null) {
-            component.getResponse().write("<script>$('#"
-                    + component.getMarkupId()
-                    + "').tooltip({ container: 'body' });</script>");
+            component.getResponse().write("<script>$('" + componentId
+                    + "').tooltip({ container: '" + containerId
+                    + "' });</script>");
         }
     }
 }
