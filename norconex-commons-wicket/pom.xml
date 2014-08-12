@@ -7,7 +7,7 @@
   <description>Extra components and utilities to complement the Apache Wicket framework.</description>
 
   <properties>
-    <wicket.version>6.15.0</wicket.version>
+    <wicket.version>6.16.0</wicket.version>
     <wicket-jquery.version>6.12.0</wicket-jquery.version>
   </properties>
 
