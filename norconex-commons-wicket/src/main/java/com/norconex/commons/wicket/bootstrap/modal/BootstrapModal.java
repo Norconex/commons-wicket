@@ -6,6 +6,10 @@ import org.apache.wicket.model.IModel;
 
 import com.norconex.commons.wicket.markup.html.panel.CssPanel;
 
+/**
+ * Bootstrap Modal dialog.
+ * @author Pascal Essiembre
+ */
 public abstract class BootstrapModal extends CssPanel {
 
     private static final long serialVersionUID = -8150141940905259147L;
@@ -39,8 +43,6 @@ public abstract class BootstrapModal extends CssPanel {
             };
         };
     }
-
-
     
     public BootstrapModalBorder getBorder() {
         return border;

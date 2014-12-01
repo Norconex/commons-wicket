@@ -1,3 +1,17 @@
+/* Copyright 2012-2014 Norconex Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.norconex.commons.wicket.markup.html.chart.jqplot.options;
 
 import java.util.ArrayList;
@@ -7,6 +21,10 @@ import java.util.Objects;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * JQPlot plot builder as a string.
+ * @author Pascal Essiembre
+ */
 @SuppressWarnings("nls")
 /*default*/ final class PlotToStringBuilder {
 
@@ -16,16 +34,6 @@ import org.apache.commons.lang3.StringUtils;
         super();
     }
 
-//    public PlotToStringBuilder rawString(String name, String str) {
-//        if (Str == null) {
-//            return this;
-//        }
-//        
-//        list.add(name + ":" + str);
-//        
-//        return this;
-//    }
-    
     public PlotToStringBuilder raw(String name, Object options) {
         if (options == null) {
             return this;
