@@ -13,5 +13,11 @@
       </action>
     </release>
 
+    <release version="1.0.1" date="2013-12-04" description="Maintenance release">
+      <action dev="kalhomoud" type="fix">
+        Added a missing html tag closure to BootstrapNavigationToolbar.html.
+      </action>
+    </release>
+
   </body>
 </document>

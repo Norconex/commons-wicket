@@ -19,7 +19,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.norconex.commons</groupId>
   <artifactId>norconex-commons-wicket</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
   <name>Norconex Commons Wicket</name>
   <description>Extra components and utilities to complement the Apache Wicket framework.</description>
 
