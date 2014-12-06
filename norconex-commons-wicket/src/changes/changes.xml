@@ -7,15 +7,15 @@
   </properties>
   <body>
 
-    <release version="1.0.0" date="2014-12-02" description="Major release">
-      <action dev="essiembre" type="add">
-        Initial release.
+    <release version="1.0.1-SNAPSHOT" date="201?-??-??" description="Maintenance release">
+      <action dev="kalhomoud" type="fix">
+        Added a missing html tag closure to BootstrapNavigationToolbar.html.
       </action>
     </release>
 
-    <release version="1.0.1" date="2013-12-04" description="Maintenance release">
-      <action dev="kalhomoud" type="fix">
-        Added a missing html tag closure to BootstrapNavigationToolbar.html.
+    <release version="1.0.0" date="2014-12-02" description="Major release">
+      <action dev="essiembre" type="add">
+        Initial release.
       </action>
     </release>
 
