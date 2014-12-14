@@ -8,6 +8,12 @@
   <body>
 
     <release version="1.0.1-SNAPSHOT" date="201?-??-??" description="Maintenance release">
+
+      <action dev="essiembre" type="fix">
+        Fixed "Tag does not have a close tag" exception coming from
+        BootstrapNavigationToolbar.html caused by having duplicate 
+        "xmlns" declarations.
+      </action>
       <action dev="kalhomoud" type="fix">
         Added a missing html tag closure to BootstrapNavigationToolbar.html.
       </action>
