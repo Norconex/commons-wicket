@@ -17,6 +17,12 @@
       <action dev="kalhomoud" type="fix">
         Added a missing html tag closure to BootstrapNavigationToolbar.html.
       </action>
+      <action dev="essiembre" type="update">
+        Added Sonatype repository to pom.xml for snapshot releases.
+      </action>      
+      <action dev="essiembre" type="update">
+        Bootstrap ModalBorder now vertically centered.
+      </action>      
     </release>
 
     <release version="1.0.0" date="2014-12-02" description="Major release">

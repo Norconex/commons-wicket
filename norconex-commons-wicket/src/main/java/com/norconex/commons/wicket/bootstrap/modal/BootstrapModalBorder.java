@@ -15,9 +15,12 @@
 package com.norconex.commons.wicket.bootstrap.modal;
 
 import org.apache.wicket.AttributeModifier;
+import org.apache.wicket.markup.head.CssHeaderItem;
+import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.border.Border;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.request.resource.CssResourceReference;
 
 import com.norconex.commons.wicket.behaviors.CssClass;
 
@@ -54,6 +57,14 @@ public class BootstrapModalBorder extends Border {
     }
     
     protected String getDialogCssClass() {
-        return "modal-dialog";
+        return "modal-dialog modal-vertical-centered";
+    }
+    
+    @Override
+    public void renderHead(IHeaderResponse response) {
+        super.renderHead(response);
+        response.render(CssHeaderItem.forReference(
+                new CssResourceReference(getClass(), 
+                        "BootstrapModalBorder.css")));        
     }
 }
