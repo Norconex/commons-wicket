@@ -91,7 +91,7 @@ public class TickOptions implements Serializable {
     /**
      * Sets where to put the tick mark on the axis
      * (one of 'outside', 'inside' or 'cross').
-     * @param mark
+     * @param mark mark
      */
     public void setMark(Mark mark) {
         this.mark = mark;

@@ -128,7 +128,7 @@ numberColumns   Maximum number of columns in the legend.
     /**
      * Sets either ‘label’, ‘value’, ‘percent’ or an array of labels to place
      * on the pie slices.  Defaults to percentage of each pie slice.
-     * @param dataLabels
+     * @param dataLabels data labels
      */
     public void setDataLabels(String... dataLabels) {
         this.dataLabels = dataLabels;

@@ -23,6 +23,9 @@
       <action dev="essiembre" type="update">
         Bootstrap ModalBorder now vertically centered.
       </action>      
+      <action dev="essiembre" type="update">
+        Javadoc updates.
+      </action>      
     </release>
 
     <release version="1.0.0" date="2014-12-02" description="Major release">

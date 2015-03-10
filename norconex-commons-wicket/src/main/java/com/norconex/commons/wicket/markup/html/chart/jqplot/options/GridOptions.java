@@ -138,7 +138,7 @@ public class GridOptions implements Serializable {
     /**
      * Sets the number of strokes to make when drawing shadow.
      * Each stroke offset by shadowOffset from the last.
-     * @param shadowDepth
+     * @param shadowDepth shadow depth
      */
     public void setShadowDepth(Integer shadowDepth) {
         this.shadowDepth = shadowDepth;
