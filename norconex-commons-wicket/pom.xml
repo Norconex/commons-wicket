@@ -25,8 +25,9 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <site.baseurl/>
-    <wicket.version>6.18.0</wicket.version>
+    <wicket.version>6.19.0</wicket.version>
   </properties>
   <inceptionYear>2012</inceptionYear>
 
@@ -105,56 +106,12 @@
         <artifactId>wagon-ssh</artifactId>
         <version>1.0</version>
       </extension>
-      <extension>  
-        <groupId>org.springframework.build.aws</groupId>  
-        <artifactId>org.springframework.build.aws.maven</artifactId>  
-        <version>3.0.0.RELEASE</version>  
-      </extension>  
     </extensions>
-    <pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>3.3</version>
-                <configuration>
-                    <generateReports>true</generateReports>
-                    <templateFile>
-                        ${basedir}/src/site/resources/skin/reflow-modified.vm
-                    </templateFile>
-                </configuration>
-                <dependencies>
-                  <dependency>
-                    <groupId>lt.velykis.maven.skins</groupId>
-                    <artifactId>reflow-velocity-tools</artifactId>
-                    <version>1.1.0</version>
-                  </dependency>
-                  <!-- Reflow skin requires Velocity >= 1.7  -->
-                  <dependency>
-                    <groupId>org.apache.velocity</groupId>
-                    <artifactId>velocity</artifactId>
-                    <version>1.7</version>
-                  </dependency>
-                  <dependency>
-                    <groupId>org.apache.maven.doxia</groupId>
-                    <artifactId>doxia-site-renderer</artifactId>
-                    <version>1.4</version>
-                  </dependency>
-                  <dependency>
-                    <groupId>org.apache.maven.doxia</groupId>
-                    <artifactId>doxia-module-markdown</artifactId>
-                    <version>1.4</version>
-                  </dependency>
-                </dependencies>                
-            </plugin>
-        </plugins>
-    </pluginManagement>    
-  
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.5.1</version>
+        <version>3.2</version>
         <configuration>
             <source>1.7</source>
             <target>1.7</target>
@@ -285,12 +242,6 @@
   </build>
 
   <distributionManagement>
-  <!--
-    <site>
-      <id>norconex-site-deployment</id>
-      <url>${site.baseurl}/../product/commons-wicket</url>
-    </site>
-  -->
     <snapshotRepository>
       <id>ossrh</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
