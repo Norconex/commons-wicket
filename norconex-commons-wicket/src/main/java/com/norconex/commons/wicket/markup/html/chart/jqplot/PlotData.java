@@ -16,6 +16,8 @@ package com.norconex.commons.wicket.markup.html.chart.jqplot;
 
 import java.io.Serializable;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import com.norconex.commons.wicket.markup.html.chart.jqplot.options.PlotOptions;
 
 /**
@@ -44,7 +46,7 @@ public class PlotData implements Serializable {
         return series;
     }
     public void setSeries(Series<?,?>[] series) {
-        this.series = series;
+        this.series = ArrayUtils.clone(series);
     }
     public PlotOptions getOptions() {
         return options;

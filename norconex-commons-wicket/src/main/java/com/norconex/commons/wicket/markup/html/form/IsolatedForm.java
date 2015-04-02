@@ -139,9 +139,7 @@ public class IsolatedForm<T> extends Form<T> {
      */
     protected void validateIsolated() {
         if (isEnabledInHierarchy() && isVisibleInHierarchy()) {
-            //XXX re-introduce those??
-//                    validateComponents();
-//                    validateFormValidators();
+            //XXX re-introduce validateComponent ?
             for (IFormValidator validator : formValidators) {
                 validateFormValidator(validator);
             }

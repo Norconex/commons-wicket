@@ -28,7 +28,6 @@ import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 public class RelativeOverlay extends Behavior {
 
     private static final long serialVersionUID = 6622078397426028561L;
-    private Component component;
     private final Component anchorComponent;
     
     public RelativeOverlay(Component anchorComponent) {
@@ -40,9 +39,8 @@ public class RelativeOverlay extends Behavior {
     @Override
     public void bind(Component component) {
         super.bind(component);
-        this.component = component;
-        this.component.setOutputMarkupId(true);
-        this.component.add(new CssStyle("display:none"));
+        component.setOutputMarkupId(true);
+        component.add(new CssStyle("display:none"));
     }
 
     @Override

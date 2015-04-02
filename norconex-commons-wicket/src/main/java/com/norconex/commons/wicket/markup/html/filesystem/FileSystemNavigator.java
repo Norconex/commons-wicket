@@ -89,19 +89,7 @@ public class FileSystemNavigator extends CssPanel {
     
     @Override
     protected void onBeforeRender() {
-//        final FileSystemTreeProvider treeProvider = getTreeProvider();
-//        IModel<Set<File>> model = new SetModel<File>(new HashSet<File>());
-        
         tree = createTree(new SetModel<File>(new HashSet<File>()));
-//                new DefaultNestedTree<File>("navigator", treeProvider, model) {
-//            private static final long serialVersionUID = -6251279132840692219L;
-//            @Override
-//            protected Component newContentComponent(
-//                    String id, IModel<File> node) {
-//                return getFileSystemContent().newContentComponent(
-//                        id, tree, node);
-//            }
-//        }; 
         addOrReplace(tree);
         super.onBeforeRender();
     }
@@ -144,7 +132,7 @@ public class FileSystemNavigator extends CssPanel {
      * Gets the file system tree provider.
      * @return the provider
      */
-    public FileSystemTreeProvider getTreeProvider() {
+    public final FileSystemTreeProvider getTreeProvider() {
         return (FileSystemTreeProvider) getDefaultModelObject();
     }
     /**

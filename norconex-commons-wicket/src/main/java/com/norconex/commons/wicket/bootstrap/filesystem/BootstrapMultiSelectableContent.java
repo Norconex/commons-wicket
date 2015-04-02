@@ -68,52 +68,6 @@ public class BootstrapMultiSelectableContent implements IFileSystemContent {
     public Component newContentComponent(
             String id, final AbstractTree<File> tree, IModel<File> model) {
         return new BootstrapFileSystemFolder(id, tree, model, this);
-//        return new Folder<File>(id, tree, model) {
-//            private static final long serialVersionUID = 7296733238240749590L;
-//
-//            @Override
-//            protected IModel<String> newLabelModel(IModel<File> fileModel) {
-//                File file = fileModel.getObject();
-//                if (isDrive(file)) {
-//                    return new Model<String>(file.getAbsolutePath());
-//                }
-//                return new Model<String>(fileModel.getObject().getName());
-//            }
-//
-//            @Override
-//            protected boolean isClickable() {
-//                return true;
-//            }
-//
-//            @Override
-//            protected void onClick(AjaxRequestTarget target) {
-//                BootstrapMultiSelectableFolderContent.this.nodeClicked(
-//                        getModelObject(), tree, target);
-//            }
-//
-//            @Override
-//            protected boolean isSelected() {
-//                return BootstrapMultiSelectableFolderContent.this.isSelected(
-//                        getModelObject());
-//            }
-//
-//            @Override
-//            protected String getOtherStyleClass(File file) {
-//                return "nx-commons-fsnav-file";
-////
-////                if (file.isDirectory() || isDrive(file)) {
-////                    return "tree-folder-closed";
-////                }
-////                return super.getOtherStyleClass(file);
-//            }
-//            @Override
-//            protected String getSelectedStyleClass() {
-//                return "nx-commons-fsnavigator-selected";
-//            }
-//            private boolean isDrive(File file) {
-//                return file.getAbsolutePath().matches("\\w+:\\\\");
-//            }
-//        };
     }
 
     @Override
