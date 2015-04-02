@@ -16,6 +16,8 @@ package com.norconex.commons.wicket.markup.html.chart.jqplot.options;
 
 import java.io.Serializable;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 /**
  * JQPlot axis.
  * @author Pascal Essiembre
@@ -139,7 +141,7 @@ public class AxisOptions implements Serializable {
      * @param ticks array of ticks to use
      */
     public void setTicks(Tick[] ticks) {
-        this.ticks = ticks;
+        this.ticks = ArrayUtils.clone(ticks);
     }
     public Integer getNumberTicks() {
         return numberTicks;

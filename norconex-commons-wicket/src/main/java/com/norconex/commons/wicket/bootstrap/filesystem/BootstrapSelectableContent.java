@@ -84,59 +84,5 @@ public class BootstrapSelectableContent implements IFileSystemContent {
     public Component newContentComponent(
             String id, final AbstractTree<File> tree, IModel<File> model) {
         return new BootstrapFileSystemFolder(id, tree, model, this);
-//        return new Folder<File>(id, tree, model) {
-//            private static final long serialVersionUID = 5637975745530454903L;
-//
-//            @Override
-//            protected IModel<String> newLabelModel(IModel<File> lblModel) {
-//                File file = lblModel.getObject();
-//                if (isDrive(file)) {
-//                    return new Model<String>(file.getAbsolutePath());
-//                }
-//                return new Model<String>(lblModel.getObject().getName());
-//            }
-//            
-//            @Override
-//            protected boolean isClickable() {
-//                return true;
-//            }
-//
-//            @Override
-//            protected void onClick(AjaxRequestTarget target) {
-//                BootstrapSelectableFolderContent.this.nodeClicked(
-//                        getModelObject(), tree, target);
-//            }
-//
-//            @Override
-//            protected boolean isSelected() {
-//               return BootstrapSelectableFolderContent.this.isSelected(
-//                       getModelObject());
-//            }
-//
-//            @Override
-//            protected String getOtherStyleClass(File file) {
-//                return "nx-commons-fsnav-file";
-////                if (file.isDirectory() || isDrive(file)) {
-////                    return "fa fa-folder-o";
-////                }
-////                return super.getOtherStyleClass(file);
-//            }
-//            @Override
-//            protected String getClosedStyleClass() {
-//                return "nx-commons-fsnav-folder-closed";
-//            }
-//            @Override
-//            protected String getOpenStyleClass() {
-//                return "nx-commons-fsnav-folder-open";
-//            }
-//            @Override
-//            protected String getSelectedStyleClass() {
-//                return "";
-//            }
-//
-//            private boolean isDrive(File file) {
-//                return file.getAbsolutePath().matches("\\w+:\\\\");
-//            }
-//        };
     }
 }

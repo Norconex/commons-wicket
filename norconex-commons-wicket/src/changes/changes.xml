@@ -7,6 +7,33 @@
   </properties>
   <body>
 
+    <release version="1.0.1" date="2015-04-02" description="Maintenance release">
+
+      <action dev="essiembre" type="fix">
+        Fixed "Tag does not have a close tag" exception coming from
+        BootstrapNavigationToolbar.html caused by having duplicate 
+        "xmlns" declarations.
+      </action>
+      <action dev="kalhomoud" type="fix">
+        Added a missing html tag closure to BootstrapNavigationToolbar.html.
+      </action>
+      <action dev="essiembre" type="update">
+        Added Sonatype repository to pom.xml for snapshot releases.
+      </action>      
+      <action dev="essiembre" type="update">
+        Updated several maven plugins and added SonarQube maven plugin.
+      </action>
+      <action dev="essiembre" type="update">
+        Bootstrap ModalBorder now vertically centered.
+      </action>      
+      <action dev="essiembre" type="update">
+        Library updates: Apache Commons Lang 3.3.2, Apache Wicket 6.19.0.
+      </action>      
+      <action dev="essiembre" type="update">
+        Javadoc updates.
+      </action>      
+    </release>
+
     <release version="1.0.0" date="2014-12-02" description="Major release">
       <action dev="essiembre" type="add">
         Initial release.

@@ -19,14 +19,15 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.norconex.commons</groupId>
   <artifactId>norconex-commons-wicket</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <name>Norconex Commons Wicket</name>
   <description>Extra components and utilities to complement the Apache Wicket framework.</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <site.baseurl/>
-    <wicket.version>6.18.0</wicket.version>
+    <wicket.version>6.19.0</wicket.version>
   </properties>
   <inceptionYear>2012</inceptionYear>
 
@@ -37,6 +38,19 @@
     </license>
   </licenses>
 
+  <repositories>
+    <repository>
+      <id>sonatype.oss.snapshots</id>
+      <name>Sonatype OSS Snapshot Repository</name>
+      <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository> 
+  </repositories>
 
   <dependencies>
       <dependency>
@@ -52,7 +66,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.2.1</version>
+            <version>3.3.2</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -85,6 +99,13 @@
                 <exclude>**/*.java</exclude>
             </excludes>
         </resource>
+        <resource>
+            <filtering>false</filtering>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>**</include>
+            </includes>
+        </resource>
     </resources>
     <extensions>
       <extension>
@@ -92,56 +113,17 @@
         <artifactId>wagon-ssh</artifactId>
         <version>1.0</version>
       </extension>
-      <extension>  
-        <groupId>org.springframework.build.aws</groupId>  
-        <artifactId>org.springframework.build.aws.maven</artifactId>  
-        <version>3.0.0.RELEASE</version>  
-      </extension>  
     </extensions>
-    <pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>3.3</version>
-                <configuration>
-                    <generateReports>true</generateReports>
-                    <templateFile>
-                        ${basedir}/src/site/resources/skin/reflow-modified.vm
-                    </templateFile>
-                </configuration>
-                <dependencies>
-                  <dependency>
-                    <groupId>lt.velykis.maven.skins</groupId>
-                    <artifactId>reflow-velocity-tools</artifactId>
-                    <version>1.1.0</version>
-                  </dependency>
-                  <!-- Reflow skin requires Velocity >= 1.7  -->
-                  <dependency>
-                    <groupId>org.apache.velocity</groupId>
-                    <artifactId>velocity</artifactId>
-                    <version>1.7</version>
-                  </dependency>
-                  <dependency>
-                    <groupId>org.apache.maven.doxia</groupId>
-                    <artifactId>doxia-site-renderer</artifactId>
-                    <version>1.4</version>
-                  </dependency>
-                  <dependency>
-                    <groupId>org.apache.maven.doxia</groupId>
-                    <artifactId>doxia-module-markdown</artifactId>
-                    <version>1.4</version>
-                  </dependency>
-                </dependencies>                
-            </plugin>
-        </plugins>
-    </pluginManagement>    
-  
     <plugins>
+      <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>sonar-maven-plugin</artifactId>
+          <version>2.5</version>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.5.1</version>
+        <version>3.2</version>
         <configuration>
             <source>1.7</source>
             <target>1.7</target>
@@ -221,7 +203,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.2.1</version>
+        <version>2.4</version>
         <executions>
           <execution>
             <id>attach-sources</id>
@@ -234,7 +216,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>2.2</version>
+        <version>2.6</version>
         <executions>
           <execution>
             <goals>
@@ -246,7 +228,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
-        <version>1.5</version>
+        <version>1.6</version>
         <executions>
           <execution>
             <id>sign-artifacts</id>
@@ -272,12 +254,6 @@
   </build>
 
   <distributionManagement>
-  <!--
-    <site>
-      <id>norconex-site-deployment</id>
-      <url>${site.baseurl}/../product/commons-wicket</url>
-    </site>
-  -->
     <snapshotRepository>
       <id>ossrh</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>

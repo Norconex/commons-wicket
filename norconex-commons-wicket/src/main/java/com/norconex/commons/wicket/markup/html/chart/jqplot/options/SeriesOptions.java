@@ -250,7 +250,7 @@ public class SeriesOptions implements Serializable {
     }
     /**
      * Sets the options passed to the renderer (LineRenderer has no options).
-     * @param renderOptions
+     * @param renderOptions render options
      */
     public void setRendererOptions(ISeriesRendererOptions renderOptions) {
         this.rendererOptions = renderOptions;
