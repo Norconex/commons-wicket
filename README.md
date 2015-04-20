@@ -12,3 +12,5 @@ Maven users:
   <version>1.0.0</version>
 </dependency>
 ```
+
+Licensed under Apache License 2.0.
