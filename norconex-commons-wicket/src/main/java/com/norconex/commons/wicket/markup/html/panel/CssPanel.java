@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2015 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,7 +57,7 @@ public abstract class CssPanel extends Panel {
             if (found) {
                 response.render(CssHeaderItem.forReference(
                         new CssResourceReference(targetClass, css)));
-                break; // really break, or add them all???
+//                break; // really break, or add them all???
             }            
         } while ((targetClass = targetClass.getSuperclass()) != null);
     }
