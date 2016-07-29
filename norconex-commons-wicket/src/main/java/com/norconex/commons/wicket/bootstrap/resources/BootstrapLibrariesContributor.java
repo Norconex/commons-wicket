@@ -37,18 +37,12 @@ public final class BootstrapLibrariesContributor {
      */
     public static final String CSS_BOOTSTRAP = "bootstrap.min-3.3.6.css";
     /**
-     * Bootstrap Theme CSS version 3.3.6.
-     * @see <a href="http://getbootstrap.com">http://getbootstrap.com</a>
-     */
-    public static final String CSS_BOOTSTRAP_THEME = 
-            "bootstrap-theme.min-3.3.6.css";
-    /**
-     * Bootstrap Select CSS version 1.5.4.
+     * Bootstrap Select CSS version 1.10.0.
      * @see <a href="http://silviomoreto.github.io/bootstrap-select/">
      * http://silviomoreto.github.io/bootstrap-select/</a>
      */
     public static final String CSS_BOOTSTRAP_SELECT = 
-            "bootstrap-select.min-1.5.4.css";
+            "bootstrap-select.min-1.10.0.css";
     /**
      * Bootstrap Date Range Picker CSS version 2.1.22.
      * @see <a href="http://www.daterangepicker.com">
@@ -87,7 +81,7 @@ public final class BootstrapLibrariesContributor {
      * http://silviomoreto.github.io/bootstrap-select/</a>
      */
     public static final String JS_BOOTSTRAP_SELECT = 
-            "bootstrap-select.min-1.5.4.js";
+            "bootstrap-select.min-1.10.0.js";
     /**
      * Bootstrap Date Range Picker Javascript version 2.1.22.
      * @see <a href="http://www.daterangepicker.com">
@@ -118,7 +112,6 @@ public final class BootstrapLibrariesContributor {
         HeaderContributor.addCss(
                 response, BootstrapLibrariesContributor.class, true, 
                 CSS_BOOTSTRAP,
-                CSS_BOOTSTRAP_THEME,
                 CSS_BOOTSTRAP_SELECT,
                 CSS_BOOTSTRAP_DATE_RANGE_PICKER,
                 CSS_BOOTSTRAP_VERTICAL_TABS,
