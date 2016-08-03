@@ -21,9 +21,6 @@ import org.apache.wicket.extensions.markup.html.repeater.data.table.HeadersToolb
 import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.ISortableDataProvider;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.NoRecordsToolbar;
-import org.apache.wicket.markup.head.CssHeaderItem;
-import org.apache.wicket.markup.head.IHeaderResponse;
-import org.apache.wicket.request.resource.CssResourceReference;
 
 import com.norconex.commons.wicket.behaviors.CssClassAppender;
 
@@ -93,13 +90,5 @@ public class BootstrapDataTable<T, S> extends DataTable<T, S> {
      */
     public String getCssClass() {
         return cssClass;
-    }
-    
-    @Override
-    public void renderHead(IHeaderResponse response) {
-        super.renderHead(response);
-        response.render(CssHeaderItem.forReference(
-                new CssResourceReference(getClass(), 
-                        "BootstrapDataTable.css")));
     }
 }

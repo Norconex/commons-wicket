@@ -32,6 +32,11 @@ import com.norconex.commons.wicket.markup.head.HeaderContributor;
 public final class BootstrapLibrariesContributor {
 
     /**
+     * Norconex Commons Wicket own CSS.
+     */
+    public static final String CSS_COMMONS_WICKET = 
+            "norconex-commons-wicket.css";
+    /**
      * Bootstrap CSS version 3.3.6.
      * @see <a href="http://getbootstrap.com">http://getbootstrap.com</a>
      */
@@ -116,7 +121,8 @@ public final class BootstrapLibrariesContributor {
                 CSS_BOOTSTRAP_DATE_RANGE_PICKER,
                 CSS_BOOTSTRAP_VERTICAL_TABS,
                 CSS_FONT_AWESOME,
-                CSS_ICOMOON
+                CSS_ICOMOON,
+                CSS_COMMONS_WICKET
         );
         HeaderContributor.addJavascript(
                 response, BootstrapLibrariesContributor.class, true, 

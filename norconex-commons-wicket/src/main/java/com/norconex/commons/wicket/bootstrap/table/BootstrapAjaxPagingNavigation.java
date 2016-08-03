@@ -14,13 +14,13 @@
  */
 package com.norconex.commons.wicket.bootstrap.table;
 
-import org.apache.wicket.markup.html.link.AbstractLink;
+import org.apache.wicket.ajax.markup.html.navigation.paging.AjaxPagingNavigation;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.navigation.paging.IPageable;
 import org.apache.wicket.markup.html.navigation.paging.IPagingLabelProvider;
-import org.apache.wicket.markup.html.navigation.paging.PagingNavigation;
 import org.apache.wicket.markup.html.navigation.paging.PagingNavigationLink;
 
-public class BootstrapAjaxPagingNavigation extends PagingNavigation {
+public class BootstrapAjaxPagingNavigation extends AjaxPagingNavigation {
 
     private static final long serialVersionUID = -4781048878992985289L;
 
@@ -32,8 +32,9 @@ public class BootstrapAjaxPagingNavigation extends PagingNavigation {
         super(id, pageable);
     }
 
+    
     @Override
-    protected AbstractLink newPagingNavigationLink(
+    protected Link<?> newPagingNavigationLink(
             String id, IPageable pageable, long pageIndex) {
         PagingNavigationLink<?> link = (PagingNavigationLink<?>) 
                 super.newPagingNavigationLink(id, pageable, pageIndex);
