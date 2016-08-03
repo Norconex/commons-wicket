@@ -27,7 +27,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <site.baseurl/>
-    <wicket.version>7.2.0</wicket.version>
+    <wicket.version>7.4.0</wicket.version>
   </properties>
   <inceptionYear>2012</inceptionYear>
 

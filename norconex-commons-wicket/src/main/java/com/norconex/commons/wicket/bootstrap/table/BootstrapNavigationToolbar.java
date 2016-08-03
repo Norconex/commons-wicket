@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import org.apache.wicket.markup.html.navigation.paging.PagingNavigator;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 
 /**
- * Bootstrap Navigation Toolbar.
+ * Bootstrap Navigation Toolbar. 
  * @author Pascal Essiembre
  */
 public class BootstrapNavigationToolbar extends AbstractToolbar {
@@ -34,6 +34,12 @@ public class BootstrapNavigationToolbar extends AbstractToolbar {
 
     private final boolean showNavigationLabel;
 
+    /**
+     * Constructor.
+     * @param table the data table
+     * @param showNavigationLabel 
+     *           whether to show the navigator label ("Showing 1 of ...")
+     */
     public BootstrapNavigationToolbar(final DataTable<?, ?> table,
             boolean showNavigationLabel) {
         super(table);
@@ -46,7 +52,7 @@ public class BootstrapNavigationToolbar extends AbstractToolbar {
 
             @Override
             public String getObject() {
-                return String.valueOf(table.getColumns().size());
+                return String.valueOf(table.getColumns().size()).intern();
             }
         }));
         span.add(newPagingNavigator("navigator", table));

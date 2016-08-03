@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- 
-   Copyright 2012-2014 Norconex Inc.
+   Copyright 2012-2016 Norconex Inc.
  
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -17,20 +17,13 @@
 <html xmlns:wicket="http://wicket.apache.org">
 <body>
 <wicket:panel>
-    <ul class="pagination pagination-sm" style="margin: 0px auto 0px auto;">
-        <li wicket:id="firstCont" class="disabled">
-            <a wicket:id="first" href="#"><i class="fa fa-angle-double-left"></i></a></li>
-        <li wicket:id="prevCont" class="disabled">
-            <a wicket:id="prev" href="#"><i class="fa fa-angle-left"></i></a></li>
-        <li wicket:id="navigation">
-            <a wicket:id="pageLink" href="#">
-            <span wicket:id="pageNumber">1</span></a>
-        </li>
-        <li wicket:id="nextCont" class="disabled">
-            <a wicket:id="next" href="#"><i class="fa fa-angle-right"></i></a></li>
-        <li wicket:id="lastCont" class="disabled">
-            <a wicket:id="last" href="#"><i class="fa fa-angle-double-right"></i></a></li>
-    </ul>
+    <a wicket:id="first" href="#"><i class="fa fa-angle-double-left"></i></a>
+    <a wicket:id="prev" rel="prev" href="#"><i class="fa fa-angle-left"></i></a>
+    <wicket:container wicket:id="navigation">
+        <a wicket:id="pageLink" href="#"><span wicket:id="pageNumber">1</span></a>
+    </wicket:container>
+    <a wicket:id="next" rel="next" href="#"><i class="fa fa-angle-right"></i></a>
+    <a wicket:id="last" href="#"><i class="fa fa-angle-double-right"></i></a>
 </wicket:panel>
 </body>
 </html>

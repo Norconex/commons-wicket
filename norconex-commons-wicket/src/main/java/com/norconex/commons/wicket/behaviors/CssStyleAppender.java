@@ -14,26 +14,23 @@
  */
 package com.norconex.commons.wicket.behaviors;
 
-import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
 /**
- * Convenience class for adding a CSS class to a component class attribute.
- * It will append it if a class is already defined for the component.  
- * To replace an existing class attribute instead, use 
- * {@link AttributeModifier}.
+ * Convenience class for appending a CSS style to a component style attribute.
+ * To replace an existing style attribute instead, use 
+ * {@link CssStyleModifier}.
  * @author Pascal Essiembre
- * @deprecated Since 2.0.0, use {@link CssClassAppender}
  */
-@Deprecated
-public class CssClass extends AttributeAppender {
-    private static final long serialVersionUID = 3338008622183887581L;
-    public CssClass(String cssClass) {
-        this(new Model<String>(cssClass));
+@SuppressWarnings("nls")
+public class CssStyleAppender extends AttributeAppender {
+    private static final long serialVersionUID = 3897281898644519865L;
+    public CssStyleAppender(String cssStyle) {
+        this(new Model<String>(cssStyle));
     }
-    public CssClass(IModel<String> model) {
-        super("class", model, " ");
+    public CssStyleAppender(IModel<String> model) {
+        super("style", model, "; ");
     }
 }

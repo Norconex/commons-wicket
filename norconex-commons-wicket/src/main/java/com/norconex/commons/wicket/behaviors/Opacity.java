@@ -50,7 +50,7 @@ public class Opacity extends Behavior {
     public void bind(Component component) {
         int intOpacity = (int) (opacity * 100.0f);
         
-        component.add(new CssStyle(
+        component.add(new CssStyleAppender(
                 "opacity:" + opacity + "; "
               + "filter:alpha(opacity=" + intOpacity + ")"));
         if (mouseOverEffect) {

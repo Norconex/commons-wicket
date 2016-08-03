@@ -1,0 +1,40 @@
+/*
+   Copyright 2016 Norconex Inc.
+ 
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+table.nx-bootstrap-table tr th.wicket_orderDown:after { 
+  content: "\f063";
+  font-family: FontAwesome;
+  font-size: xx-small;
+  color: #999;
+}
+table.nx-bootstrap-table tr th.wicket_orderUp:after { 
+  content: "\f062";
+  font-size: xx-small;
+  font-family: FontAwesome;
+  color: #999;
+}
+table.nx-bootstrap-table tr div.navigatorLabel {
+  float: left;
+  vertical-align: bottom;
+  font-size: larger;
+}
+table.nx-bootstrap-table tr div.navigator {
+  float: right;
+}
+
+table.nx-bootstrap-table ul.pagination {
+  margin: 0px auto 0px auto;
+}
+

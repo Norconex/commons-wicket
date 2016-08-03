@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 
-import com.norconex.commons.wicket.behaviors.CssClass;
-import com.norconex.commons.wicket.behaviors.CssStyle;
+import com.norconex.commons.wicket.behaviors.CssClassAppender;
+import com.norconex.commons.wicket.behaviors.CssStyleAppender;
 import com.norconex.commons.wicket.markup.html.panel.CssPanel;
 
 /**
@@ -103,10 +103,10 @@ public class BootstrapProgressBar extends CssPanel {
         if (labelDisabled) {
             label.add(new AttributeModifier("class", "sr-only"));
         } else if (percent < 20) {
-            bar.add(new CssStyle("color: darkgrey;"));
+            bar.add(new CssStyleAppender("color: darkgrey;"));
         }
         if (StringUtils.isNotBlank(barCssClass)) {
-            bar.add(new CssClass(barCssClass));
+            bar.add(new CssClassAppender(barCssClass));
         }
         bar.add(label);
         progress.addOrReplace(bar);

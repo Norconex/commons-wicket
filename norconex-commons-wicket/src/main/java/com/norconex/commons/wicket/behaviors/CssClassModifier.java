@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,26 +14,23 @@
  */
 package com.norconex.commons.wicket.behaviors;
 
+import java.io.Serializable;
+
 import org.apache.wicket.AttributeModifier;
-import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.Model;
 
 /**
- * Convenience class for adding a CSS class to a component class attribute.
- * It will append it if a class is already defined for the component.  
- * To replace an existing class attribute instead, use 
- * {@link AttributeModifier}.
+ * Convenience class for modifying a CSS class attribute.
+ * To append to any existing values of a class attribute instead, use 
+ * {@link CssClassAppender}.
  * @author Pascal Essiembre
- * @deprecated Since 2.0.0, use {@link CssClassAppender}
  */
-@Deprecated
-public class CssClass extends AttributeAppender {
-    private static final long serialVersionUID = 3338008622183887581L;
-    public CssClass(String cssClass) {
-        this(new Model<String>(cssClass));
+public class CssClassModifier extends AttributeModifier {
+    private static final long serialVersionUID = 700474858380723372L;
+    public CssClassModifier(IModel<?> replaceModel) {
+        super("class", replaceModel);
     }
-    public CssClass(IModel<String> model) {
-        super("class", model, " ");
+    public CssClassModifier(Serializable value) {
+        super("class", value);
     }
 }
