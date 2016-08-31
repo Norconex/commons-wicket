@@ -63,11 +63,11 @@ public final class BootstrapLibrariesContributor {
     public static final String CSS_BOOTSTRAP_VERTICAL_TABS = 
             "bootstrap.vertical-tabs.min-1.0.0.css";
     /**
-     * Font Awesome CSS version 4.1.0.
+     * Font Awesome CSS version 4.6.3.
      * @see <a href="http://fontawesome.io">http://fontawesome.io</a>
      */
     public static final String CSS_FONT_AWESOME = 
-            "font-awesome.min-4.1.0.css";
+            "font-awesome.min-4.6.3.css";
     /**
      * Font IcoMoon (no version provided).
      * @see <a href="https://icomoon.io/">https://icomoon.io/</a>
