@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ public class PointLabelOptions implements Serializable {
     private static final long serialVersionUID = -5694677178788650146L;
 
     private Boolean show;
+    private Boolean hideZeros;
     private Location location;
 
     public Boolean getShow() {
@@ -49,6 +50,18 @@ public class PointLabelOptions implements Serializable {
         this.location = location;
     }
     
+    /**
+     * Sets whether not show a label for a value which is 0. 
+     * @param hideZeros true to hide zeros
+     */
+    public void setHideZeros(Boolean hideZeros) {
+        this.hideZeros = hideZeros;
+    }
+    public Boolean getHideZeros() {
+        return hideZeros;
+    }
+    
+    
     /*
 
 Others:
@@ -63,7 +76,6 @@ escapeHTML      true to escape html entities in the labels.
 edgeTolerance   Number of pixels that the label must be away from an axis boundary in order to be drawn.
 formatter       A class of a formatter for the tick text.
 formatString    string passed to the formatter.
-hideZeros       true to not show a label for a value which is 0.
 
 
      */
@@ -72,6 +84,7 @@ hideZeros       true to not show a label for a value which is 0.
     public String toString() {
         return new PlotToStringBuilder()
             .bool("show", show)
+            .bool("hideZeros", hideZeros)
             .enumString("location", location)
             .toString();
     }
