@@ -49,12 +49,12 @@ public final class BootstrapLibrariesContributor {
     public static final String CSS_BOOTSTRAP_SELECT = 
             "bootstrap-select.min-1.10.0.css";
     /**
-     * Bootstrap Date Range Picker CSS version 2.1.22.
+     * Bootstrap Date Range Picker CSS version 2.1.24.
      * @see <a href="http://www.daterangepicker.com">
      * http://www.daterangepicker.com</a>
      */
     public static final String CSS_BOOTSTRAP_DATE_RANGE_PICKER = 
-            "daterangepicker-2.1.22.css";
+            "daterangepicker-2.1.24.css";
     /**
      * Bootstrap Vertial Tabs CSS version 1.0.0.
      * @see <a href="http://github.com/dbtek/bootstrap-vertical-tabs">
@@ -88,12 +88,12 @@ public final class BootstrapLibrariesContributor {
     public static final String JS_BOOTSTRAP_SELECT = 
             "bootstrap-select.min-1.10.0.js";
     /**
-     * Bootstrap Date Range Picker Javascript version 2.1.22.
+     * Bootstrap Date Range Picker Javascript version 2.1.24.
      * @see <a href="http://www.daterangepicker.com">
      * http://www.daterangepicker.com</a>
      */
     public static final String JS_BOOTSTRAP_DATE_RANGE_PICKER = 
-            "daterangepicker-2.1.22.js";
+            "daterangepicker-2.1.24.js";
     /**
      * Moment.js Javascript version 2.13.0.
      * @see <a href="http://momentjs.com/">http://momentjs.com/</a>
