@@ -92,10 +92,10 @@ public class LegendOptions implements Serializable {
     }
     /**
      * Sets the legend placement in relation to the grid. 
-     * �?insideGrid�? places legend inside the grid 
-     * area of the plot. “outsideGrid�? places the legend outside the grid but 
+     * "insideGrid" places legend inside the grid 
+     * area of the plot. "outsideGrid" places the legend outside the grid but 
      * inside the plot container, shrinking the grid to accommodate the legend.
-     * “inside�? synonym for “insideGrid�?, “outside�? places the legend outside 
+     * "inside" synonym for "insideGrid", "outside" places the legend outside 
      * the grid area, but does not shrink the grid which can cause the legend 
      * to overflow the plot container.
      * @param placement the legend placement

@@ -35,6 +35,7 @@ public class PieRendererOptions implements ISeriesRendererOptions {
     private Integer sliceMargin;
     private Boolean fill;
     private String[] dataLabels;
+    private String dataLabelFormatString;
     private Float dataLabelPositionFactor;
     private Boolean dataLabelCenterOn;
     private Boolean showDataLabels;
@@ -49,8 +50,6 @@ $.jqplot.PieRenderer    Plugin renderer to draw a pie chart.
 shadowOffset    offset of the shadow from the slice and offset of each succesive stroke of the shadow from the last.
 shadowAlpha     transparency of the shadow (0 = transparent, 1 = opaque)
 shadowDepth     number of strokes to apply to the shadow, each stroke offset shadowOffset from the last.
-dataLabels      Either ‘label’, ‘value’, ‘percent’ or an array of labels to place on the pie slices.
-dataLabelFormatString   Format string for data labels.
 dataLabelThreshold      Threshhold in percentage (0-100) of pie area, below which no label will be displayed.
 dataLabelNudge  Number of pixels to slide the label away from (+) or toward (-) the center of the pie.
 dataLabelCenterOn       True to center the data label at its position.
@@ -137,6 +136,18 @@ numberColumns   Maximum number of columns in the legend.
     public Float getDataLabelPositionFactor() {
         return dataLabelPositionFactor;
     }
+    public String getDataLabelFormatString() {
+        return dataLabelFormatString;
+    }
+    /**
+     * Sets the format string for data labels. For example, if "dataLabels"
+     * is set to "value" and "percent", you could use this format: 
+     * "%d %d%%".
+     * @param dataLabelFormatString format string for data labels
+     */
+    public void setDataLabelFormatString(String dataLabelFormatString) {
+        this.dataLabelFormatString = dataLabelFormatString;
+    }
     /**
      * Sets a Multiplier (0-1) of the pie radius which controls position of 
      * label on slice.  Increasing will slide label toward edge of pie, 
@@ -205,6 +216,7 @@ numberColumns   Maximum number of columns in the legend.
             .bool("fill", fill)
             .bool("showDataLabels", showDataLabels)
             .stringArray("dataLabels", dataLabels)
+            .string("dataLabelFormatString", dataLabelFormatString)
             .decimal("dataLabelPositionFactor", dataLabelPositionFactor)
             .bool("dataLabelCenterOn ", dataLabelCenterOn )
             .bool("highlightMouseOver", highlightMouseOver)
