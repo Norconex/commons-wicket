@@ -1,3 +1,17 @@
+/* Copyright 2012-2016 Norconex Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.norconex.commons.wicket.bootstrap.modal;
 
 import org.apache.wicket.AttributeModifier;
@@ -32,16 +46,12 @@ public abstract class BootstrapModal extends CssPanel {
             final boolean large) {
         super(id, model);
         this.title = title;
-        border = new BootstrapModalBorder("modal") {
-            private static final long serialVersionUID = 7656456202026766595L;
-            protected String getDialogCssClass() {
-                String css = super.getDialogCssClass();
-                if (large) {
-                    css += " modal-lg";
-                }
-                return css;
-            };
-        };
+        border = createModalBorder("modal", large);
+    }
+    
+    protected BootstrapModalBorder createModalBorder(
+            String markupId, boolean large) {
+        return new BootstrapModalBorder(markupId, large);
     }
     
     public BootstrapModalBorder getBorder() {

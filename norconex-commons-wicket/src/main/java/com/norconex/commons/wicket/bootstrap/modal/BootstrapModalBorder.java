@@ -34,11 +34,21 @@ public class BootstrapModalBorder extends Border {
 
     private final WebMarkupContainer dialog = new WebMarkupContainer("dialog");
 
+    private final boolean large;
+    
     public BootstrapModalBorder(String id) {
-        super(id);
+        this(id, false);
     }
     public BootstrapModalBorder(String id, IModel<?> model) {
+        this(id, model, false);
+    }
+    public BootstrapModalBorder(String id, boolean large) {
+        super(id);
+        this.large = large;
+    }
+    public BootstrapModalBorder(String id, IModel<?> model, boolean large) {
         super(id, model);
+        this.large = large;
     }
     
     protected void onInitialize() {
@@ -47,17 +57,21 @@ public class BootstrapModalBorder extends Border {
         add(new AttributeModifier("tabindex", "-1"));
         add(new AttributeModifier("role", "dialog"));
         add(new AttributeModifier("aria-hidden", "true"));
-        add(new CssClassAppender(getBorderCssClass()));
+        add(new CssClassAppender(getModalBorderCssClass()));
         dialog.add(new CssClassAppender(getDialogCssClass()));
         addToBorder(dialog);
     }
 
-    protected String getBorderCssClass() {
-        return "modal fade";
+    protected String getModalBorderCssClass() {
+        return "modal-vertical-centered modal fade";
     }
     
     protected String getDialogCssClass() {
-        return "modal-dialog modal-vertical-centered";
+        String css = "modal-dialog"; 
+        if (large) {
+            css += " modal-lg";
+        }
+        return css;
     }
     
     @Override
