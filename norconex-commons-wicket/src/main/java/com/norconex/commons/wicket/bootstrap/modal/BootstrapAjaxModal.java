@@ -90,6 +90,7 @@ public abstract class BootstrapAjaxModal extends BootstrapModal {
     }
     public void hide(AjaxRequestTarget target) {
         target.appendJavaScript(
-                "$('#" + getModalId() + "').modal('hide');");
+                "$('#" + getModalId() + "').removeClass('fade');" 
+              + "$('#" + getModalId() + "').modal('hide');");
     }
 }
