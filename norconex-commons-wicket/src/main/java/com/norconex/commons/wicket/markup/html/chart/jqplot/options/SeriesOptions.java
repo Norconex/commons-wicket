@@ -58,6 +58,7 @@ public class SeriesOptions implements Serializable {
     private Boolean fillAndStroke;
     private String fillColor;
     private Float fillAlpha;
+    private Boolean step;
     private String renderer;
     private ISeriesRendererOptions rendererOptions;
     private String markerRenderer;
@@ -239,6 +240,16 @@ public class SeriesOptions implements Serializable {
         return renderer;
     }
     /**
+     * Sets whether to show line charts as "steps".
+     * @param step <code>true</code> to show as steps.
+     */
+    public void setStep(Boolean step) {
+        this.step = step;
+    }
+    public Boolean getStep() {
+        return step;
+    }
+    /**
      * Sets the renderer used to draw the series.
      * @param renderer the renderer used to draw the series
      */
@@ -299,10 +310,11 @@ public class SeriesOptions implements Serializable {
             .bool("fillAndStroke", fillAndStroke)
             .string("fillColor", fillColor)
             .decimal("fillAlpha", fillAlpha)
+            .bool("step", step)
             .raw("renderer", renderer)
             .raw("rendererOptions", rendererOptions)
             .string("markerRenderer", markerRenderer)
-            .raw("markerRenderer", markerRenderer)
+            .raw("markerOptions", markerOptions)
             .raw("pointLabels", pointLabels)
             .toString();
     }

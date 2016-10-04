@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,28 @@ public class MarkerOptions implements Serializable {
 
     private static final long serialVersionUID = -1766272455353520759L;
 
+    public enum Style {
+        DIAMOND("diamond"),
+        CIRCLE("circle"),
+        SQUARE("square"),
+        X("x"),
+        PLUS("plus"),
+        DASH("dash"),
+        FILLED_DIAMOND("filledDiamond"), 
+        FILLED_CIRCLE("filledCircle"),
+        FILLED_SQUARE("filledSquare");
+        private String style;
+        Style(String style) {
+            this.style = style;
+        }
+        @Override
+        public String toString() {
+            return style;
+        }
+    }
+    
     private Boolean show;
-    private String style;
+    private Style style;
     private Integer lineWidth;
     private Integer size;
     private String color;
@@ -42,10 +62,10 @@ public class MarkerOptions implements Serializable {
     public void setShow(Boolean show) {
         this.show = show;
     }
-    public String getStyle() {
+    public Style getStyle() {
         return style;
     }
-    public void setStyle(String style) {
+    public void setStyle(Style style) {
         this.style = style;
     }
     public Integer getLineWidth() {
@@ -101,7 +121,7 @@ public class MarkerOptions implements Serializable {
     public String toString() {
         return new PlotToStringBuilder()
             .bool("show", show)
-            .string("style", style)
+            .enumString("style", style)
             .number("lineWidth", lineWidth)
             .number("size", size)
             .string("color", color)

@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,12 +28,22 @@ public class LegendOptions implements Serializable {
 
     public enum Placement{ insideGrid, outsideGrid, inside, outside };
     
+    /**
+     * Optional legend renderer that can work with optional 
+     * {@link EnhancedLegendRendererOptions}.
+     */
+    public static final String ENHANCED_LEGEND_RENDERER = 
+            "$.jqplot.EnhancedLegendRenderer";
+
     private Boolean show;
     private Location location;
     private Integer xoffset;
     private Integer yoffset;
     private String[] labels;
     private Placement placement;
+    
+    private String renderer;
+    private ILegendRendererOptions rendererOptions;
 
     public Boolean getShow() {
         return show;
@@ -103,6 +113,28 @@ public class LegendOptions implements Serializable {
     public void setPlacement(Placement placement) {
         this.placement = placement;
     }
+    
+    public String getRenderer() {
+        return renderer;
+    }
+    /**
+     * Sets an optional legend renderer.
+     * @param renderer legend renderer
+     */
+    public void setRenderer(String renderer) {
+        this.renderer = renderer;
+    }
+    public ILegendRendererOptions getRendererOptions() {
+        return rendererOptions;
+    }
+    /**
+     * Sets an optional legend renderer options.
+     * @param rendererOptions renderer options
+     */
+    public void setRendererOptions(ILegendRendererOptions rendererOptions) {
+        this.rendererOptions = rendererOptions;
+    }
+    
     @Override
     public String toString() {
         return new PlotToStringBuilder()
@@ -112,6 +144,8 @@ public class LegendOptions implements Serializable {
             .number("yoffset", yoffset)
             .stringArray("labels", labels)
             .enumString("placement", placement)
+            .raw("renderer", renderer)
+            .raw("rendererOptions", rendererOptions)
             .toString();
     }
 }
