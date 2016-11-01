@@ -77,13 +77,13 @@ public class BootstrapTooltip extends Behavior {
     @Override
     public void afterRender(Component component) {
         String componentId = "#" + component.getMarkupId();
-        String containerId = componentId;
+        String resolvedContainerId = componentId;
         if (StringUtils.isNotBlank(this.containerId)) {
-            containerId = this.containerId;
+            resolvedContainerId = this.containerId;
         }
         if (text != null) {
             component.getResponse().write("<script>$('" + componentId
-                    + "').tooltip({ container: '" + containerId
+                    + "').tooltip({ container: '" + resolvedContainerId
                     + "' });</script>");
         }
     }
