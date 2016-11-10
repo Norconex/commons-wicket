@@ -18,6 +18,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.Behavior;
+import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
@@ -76,15 +77,27 @@ public class BootstrapTooltip extends Behavior {
     
     @Override
     public void afterRender(Component component) {
+        boolean useContainer = true;
+        //Apparently tooltips do not show on <input> elements when container
+        //is used.
+        if (component instanceof TextField<?>) {
+            useContainer = false;
+        }
+        
         String componentId = "#" + component.getMarkupId();
         String resolvedContainerId = componentId;
         if (StringUtils.isNotBlank(this.containerId)) {
             resolvedContainerId = this.containerId;
         }
         if (text != null) {
-            component.getResponse().write("<script>$('" + componentId
-                    + "').tooltip({ container: '" + resolvedContainerId
-                    + "' });</script>");
+            String script = "<script>$('" + componentId
+                    + "').tooltip({";
+            if (useContainer) {
+                script += "  container: '" + resolvedContainerId + "'";
+            }
+//            script += ",  trigger: 'hover'";
+            script += "});</script>";
+            component.getResponse().write(script);
         }
     }
 }
