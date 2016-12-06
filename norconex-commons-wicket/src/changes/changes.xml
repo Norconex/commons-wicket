@@ -7,6 +7,10 @@
   </properties>
   <body>
 
+    <release version="2.0.0-SNAPSHOT" date="201?-??-??" description="Major release">
+
+    </release>
+
     <release version="1.0.1" date="2015-04-02" description="Maintenance release">
 
       <action dev="essiembre" type="fix">

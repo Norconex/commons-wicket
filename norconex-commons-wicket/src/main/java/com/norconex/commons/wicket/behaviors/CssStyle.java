@@ -25,8 +25,9 @@ import org.apache.wicket.model.Model;
  * To replace an existing style attribute instead, use 
  * {@link AttributeModifier}.
  * @author Pascal Essiembre
+ * @deprecated Since 2.0.0, use {@link CssStyleAppender}
  */
-@SuppressWarnings("nls")
+@Deprecated
 public class CssStyle extends AttributeAppender {
     private static final long serialVersionUID = 3897281898644519865L;
     public CssStyle(String cssStyle) {

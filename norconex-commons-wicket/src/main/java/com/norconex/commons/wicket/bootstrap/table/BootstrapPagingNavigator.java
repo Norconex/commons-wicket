@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,10 +14,7 @@
  */
 package com.norconex.commons.wicket.bootstrap.table;
 
-import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.html.link.AbstractLink;
-import org.apache.wicket.markup.html.link.ExternalLink;
-import org.apache.wicket.markup.html.list.LoopItem;
 import org.apache.wicket.markup.html.navigation.paging.IPageable;
 import org.apache.wicket.markup.html.navigation.paging.IPagingLabelProvider;
 import org.apache.wicket.markup.html.navigation.paging.PagingNavigation;
@@ -33,6 +30,8 @@ public class BootstrapPagingNavigator extends PagingNavigator {
 
     private static final long serialVersionUID = -1453846937064545288L;
 
+    private String cssClass = "pagination pagination-sm";
+    
     public BootstrapPagingNavigator(String id, IPageable pageable) {
         super(id, pageable);
     }
@@ -42,56 +41,49 @@ public class BootstrapPagingNavigator extends PagingNavigator {
         super(id, pageable, labelProvider);
     }
 
+    // regular paginagion links
     @Override
     protected PagingNavigation newNavigation(String id, IPageable pageable,
             IPagingLabelProvider labelProvider) {
-        return new PagingNavigation(id, pageable, labelProvider) {
-            private static final long serialVersionUID = -1041791124600426054L;
-
-            @Override
-            protected LoopItem newItem(int iteration) {
-                LoopItem item = super.newItem(iteration);
-
-                // add css for enable/disable link
-                long pageIndex = getStartIndex() + iteration;
-                item.add(new AttributeModifier("class", 
-                        new BootstrapPageLinkCssModel(
-                                pageable, pageIndex, "active")));
-
-                return item;
-            }
-        };
+        return new BootstrapPagingNavigation(id, pageable, labelProvider);
     }
 
+    // "first" and "last" links
     @Override
     protected AbstractLink newPagingNavigationLink(String id,
             IPageable pageable, int pageNumber) {
-        ExternalLink navCont = new ExternalLink(id + "Cont", (String) null);
-
-        // add css for enable/disable link
-        long pageIndex = pageable.getCurrentPage() + pageNumber;
-        navCont.add(new AttributeModifier("class", 
-                new BootstrapPageLinkCssModel(
-                        pageable, pageIndex, "disabled")));
-
-        // change original wicket-link, so that it always generates href
-        navCont.add(new PagingNavigationLink<Void>(id, pageable, pageNumber));
-        return navCont;
+        PagingNavigationLink<?> link = (PagingNavigationLink<?>) 
+                super.newPagingNavigationLink(id, pageable, pageNumber);
+        link.add(new BootstrapPagingNavigationFirstLastLinkBehavior(
+                pageable, link, getCssClass()));
+        return link;
     }
 
+    // "previous" and "next" links
     @Override
     protected AbstractLink newPagingNavigationIncrementLink(String id,
             IPageable pageable, int increment) {
-        ExternalLink navCont = new ExternalLink(id + "Cont", (String) null);
-
-        // add css for enable/disable link
-        long pageIndex = pageable.getCurrentPage() + increment;
-        navCont.add(new AttributeModifier("class",
-                new BootstrapPageLinkIncrementCssModel(pageable, pageIndex)));
-
-        // change original wicket-link, so that it always generates href
-        navCont.add(new PagingNavigationIncrementLink<Void>(
-                id, pageable, increment));
-        return navCont;
+        PagingNavigationIncrementLink<?> link = 
+                (PagingNavigationIncrementLink<?>) 
+                        super.newPagingNavigationIncrementLink(
+                                id, pageable, increment);
+        link.add(new BootstrapPagingNavigationPrevNextLinkBehavior(
+                pageable, link));
+        return link;
+    }
+    
+    /**
+     * Gets the &lt;ul&gt; CSS class.
+     * @return CSS class
+     */
+    public String getCssClass() {
+        return cssClass;
+    }
+    /**
+     * Sets the &lt;ul&gt; CSS class.
+     * @param cssClass CSS class
+     */
+    public void setCssClass(String cssClass) {
+        this.cssClass = cssClass;
     }
 }

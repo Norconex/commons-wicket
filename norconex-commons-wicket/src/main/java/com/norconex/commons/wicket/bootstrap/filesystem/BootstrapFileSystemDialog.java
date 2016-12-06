@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.ResourceModel;
 
-import com.norconex.commons.wicket.behaviors.CssClass;
+import com.norconex.commons.wicket.behaviors.CssClassAppender;
 import com.norconex.commons.wicket.behaviors.Title;
 import com.norconex.commons.wicket.bootstrap.modal.BootstrapAjaxModal;
 import com.norconex.commons.wicket.bootstrap.modal.BootstrapModalDefaultHeader;
@@ -74,7 +74,7 @@ public abstract class BootstrapFileSystemDialog extends BootstrapAjaxModal {
 
         setOutputMarkupId(true);
         
-        add(new CssClass("nx-commons-fsdlg"));
+        add(new CssClassAppender("nx-commons-fsdlg"));
         
         this.multiSelectEnabled = multiSelectEnabled;
         this.navigator = new BootstrapFileSystemNavigator(

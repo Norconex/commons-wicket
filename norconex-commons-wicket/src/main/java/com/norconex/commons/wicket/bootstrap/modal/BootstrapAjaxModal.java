@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,9 +55,6 @@ public abstract class BootstrapAjaxModal extends BootstrapModal {
         super.onBeforeRender();
     }
     
-    protected String getCssClass() {
-        return "modal fade";
-    }
     protected final Component createContentComponent(String markupId) {
         if (loadContent) {
             return createAjaxContentComponent(markupId);
@@ -93,6 +90,7 @@ public abstract class BootstrapAjaxModal extends BootstrapModal {
     }
     public void hide(AjaxRequestTarget target) {
         target.appendJavaScript(
-                "$('#" + getModalId() + "').modal('hide');");
+                "$('#" + getModalId() + "').removeClass('fade');" 
+              + "$('#" + getModalId() + "').modal('hide');");
     }
 }

@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import org.apache.wicket.markup.html.border.Border;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.resource.CssResourceReference;
 
-import com.norconex.commons.wicket.behaviors.CssClass;
+import com.norconex.commons.wicket.behaviors.CssClassAppender;
 
 /**
  * Wicket {@link Border} for a Bootstrap Modal Dialog.
@@ -34,11 +34,21 @@ public class BootstrapModalBorder extends Border {
 
     private final WebMarkupContainer dialog = new WebMarkupContainer("dialog");
 
+    private final boolean large;
+    
     public BootstrapModalBorder(String id) {
-        super(id);
+        this(id, false);
     }
     public BootstrapModalBorder(String id, IModel<?> model) {
+        this(id, model, false);
+    }
+    public BootstrapModalBorder(String id, boolean large) {
+        super(id);
+        this.large = large;
+    }
+    public BootstrapModalBorder(String id, IModel<?> model, boolean large) {
         super(id, model);
+        this.large = large;
     }
     
     protected void onInitialize() {
@@ -47,17 +57,21 @@ public class BootstrapModalBorder extends Border {
         add(new AttributeModifier("tabindex", "-1"));
         add(new AttributeModifier("role", "dialog"));
         add(new AttributeModifier("aria-hidden", "true"));
-        add(new CssClass(getBorderCssClass()));
-        dialog.add(new CssClass(getDialogCssClass()));
+        add(new CssClassAppender(getModalBorderCssClass()));
+        dialog.add(new CssClassAppender(getDialogCssClass()));
         addToBorder(dialog);
     }
 
-    protected String getBorderCssClass() {
-        return "modal fade";
+    protected String getModalBorderCssClass() {
+        return "modal-vertical-centered modal fade";
     }
     
     protected String getDialogCssClass() {
-        return "modal-dialog modal-vertical-centered";
+        String css = "modal-dialog"; 
+        if (large) {
+            css += " modal-lg";
+        }
+        return css;
     }
     
     @Override

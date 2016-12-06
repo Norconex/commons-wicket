@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ import org.apache.wicket.WicketRuntimeException;
 import org.apache.wicket.behavior.Behavior;
 import org.apache.wicket.markup.ComponentTag;
 
-import com.norconex.commons.wicket.behaviors.CssClass;
+import com.norconex.commons.wicket.behaviors.CssClassAppender;
 
 /**
  * Change the look-and-feel of a &lt;select&gt; component to Bootstrap.
@@ -48,7 +48,7 @@ public class BootstrapSelect extends Behavior {
 
     @Override
     public void bind(Component component) {
-        component.add(new CssClass("selectpicker"));
+        component.add(new CssClassAppender("selectpicker"));
     }
 
     @Override

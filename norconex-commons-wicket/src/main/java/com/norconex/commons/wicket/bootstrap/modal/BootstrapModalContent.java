@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,12 +42,7 @@ public abstract class BootstrapModalContent extends Panel {
         addOrReplace(createFooterComponent("footer"));
     }
 
-    protected String getCssClass() {
-        return "modal fade";
-    }
-    
     protected abstract Component createHeaderComponent(String id);
     protected abstract Component createBodyComponent(String id);
     protected abstract Component createFooterComponent(String id);
-    
 }

@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ public abstract class OnClickBehavior extends AjaxEventBehavior {
     private static final long serialVersionUID = 4753399421269066084L;
 
     public OnClickBehavior() {
-        super("onclick");
+        super("click");
     }
 
     @Override

@@ -82,7 +82,7 @@ public final class PlotOptionsFactory {
         p.setStackSeries(true);
         p.getSeriesDefaults().setShadowAngle(135);
         p.getSeriesDefaults().getPointLabels().setShow(true);
-        p.getSeries().get(0).getPointLabels().setShow(false);
+        p.getSeriesDefaults().getPointLabels().setHideZeros(true);
         p.getSeries().get(1).setColor("#ddeeff");
         
         HighlighterOptions hl = p.getHighlighter();

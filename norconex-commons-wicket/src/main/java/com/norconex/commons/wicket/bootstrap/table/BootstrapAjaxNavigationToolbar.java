@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
  */
 package com.norconex.commons.wicket.bootstrap.table;
 
-import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.DataTable;
 import org.apache.wicket.markup.html.navigation.paging.PagingNavigator;
 
@@ -34,12 +33,6 @@ public class BootstrapAjaxNavigationToolbar extends BootstrapNavigationToolbar {
     @Override
     protected PagingNavigator newPagingNavigator(
             final String navigatorId, final DataTable<?, ?> table) {
-        return new BootstrapAjaxPagingNavigator(navigatorId, table) {
-            private static final long serialVersionUID = 1637947456396615468L;
-            @Override
-            protected void onAjaxEvent(final AjaxRequestTarget target) {
-                target.add(table);
-            }
-        };
+        return new BootstrapAjaxPagingNavigator(navigatorId, table);
     }
 }

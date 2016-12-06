@@ -40,7 +40,7 @@ public class RelativeOverlay extends Behavior {
     public void bind(Component component) {
         super.bind(component);
         component.setOutputMarkupId(true);
-        component.add(new CssStyle("display:none"));
+        component.add(new CssStyleAppender("display:none"));
     }
 
     @Override

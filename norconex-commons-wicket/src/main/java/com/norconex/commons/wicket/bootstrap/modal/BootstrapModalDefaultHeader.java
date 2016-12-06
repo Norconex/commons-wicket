@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
-import com.norconex.commons.wicket.behaviors.CssClass;
+import com.norconex.commons.wicket.behaviors.CssClassAppender;
 
 /**
  * Default Bootstrap modal header.
@@ -43,7 +43,7 @@ public class BootstrapModalDefaultHeader extends Panel {
         this.titleLabel = new Label("modalTitle", title);
         WebMarkupContainer icon = new WebMarkupContainer("icon");
         if (StringUtils.isNotBlank(fontIcon)) {
-            icon.add(new CssClass(fontIcon));
+            icon.add(new CssClassAppender(fontIcon));
         } else {
             icon.setVisible(false);
         }

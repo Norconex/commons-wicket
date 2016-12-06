@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,12 +40,18 @@ public class SessionLocaleDropDownChoice extends LocaleDropDownChoice {
     public SessionLocaleDropDownChoice(
             String id, List<Locale> supportedLocales) {
         this(id, supportedLocales, null);
+        setOutputMarkupId(true);
     }
     public SessionLocaleDropDownChoice(String id, 
             List<Locale> supportedLocales, Locale displayLocale) {
         super(id, getClosestLocale(supportedLocales),
                 supportedLocales, displayLocale);
-        add(new AjaxFormComponentUpdatingBehavior("onchange") {
+    }
+
+    @Override
+    protected void onInitialize() {
+        super.onInitialize();
+        add(new AjaxFormComponentUpdatingBehavior("change") {
             private static final long serialVersionUID = -1662608278242800064L;
             @Override
             protected void onUpdate(AjaxRequestTarget target) {
@@ -54,7 +60,7 @@ public class SessionLocaleDropDownChoice extends LocaleDropDownChoice {
             }
         });
     }
-
+    
     private static IModel<Locale> getClosestLocale(
             List<Locale> supportedLocales) {
         if (supportedLocales == null || supportedLocales.isEmpty()) {

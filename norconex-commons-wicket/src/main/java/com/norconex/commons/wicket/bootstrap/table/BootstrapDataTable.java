@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,13 @@ import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.ISortableDataProvider;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.NoRecordsToolbar;
 
+import com.norconex.commons.wicket.behaviors.CssClassAppender;
+
 /**
- * Bootstrap {@link DataTable}.
+ * Bootstrap {@link DataTable}.  Adds Bootstraps CSS classes to a data table
+ * as well has providing Bootstrap pagination above and below the table. 
+ * A small arrow icon is also added to sorted columns. 
+ * 
  * @author Pascal Essiembre
  *
  * @param <T>
@@ -35,6 +40,21 @@ public class BootstrapDataTable<T, S> extends DataTable<T, S> {
 
     private static final long serialVersionUID = 5211660464006380514L;
 
+    private String cssClass = "nx-bootstrap-table table table-striped "
+            + "table-hover table-condensed";
+    
+    /**
+     * Constructor
+     * 
+     * @param id
+     *            component id
+     * @param columns
+     *            list of IColumn objects
+     * @param dataProvider
+     *            model for data provider
+     * @param rowsPerPage
+     *            number of rows per page
+     */    
     public BootstrapDataTable(final String id, 
             final List<? extends IColumn<T, S>> columns,
             final ISortableDataProvider<T, S> dataProvider, 
@@ -43,10 +63,32 @@ public class BootstrapDataTable<T, S> extends DataTable<T, S> {
         addToolbars(dataProvider);
     }
     
+    @Override
+    protected void onInitialize() {
+        super.onInitialize();
+        add(new CssClassAppender(getCssClass()));
+    }
+    
     protected void addToolbars(ISortableDataProvider<T, S> dataProvider) {
         addTopToolbar(new BootstrapNavigationToolbar(this, true));
         addTopToolbar(new HeadersToolbar<S>(this, dataProvider));
         addBottomToolbar(new NoRecordsToolbar(this));
         addBottomToolbar(new BootstrapNavigationToolbar(this, false));
+    }
+
+    
+    /**
+     * Sets the table CSS class.
+     * @param cssClass CSS class
+     */
+    public void setCssClass(String cssClass) {
+        this.cssClass = cssClass;
+    }
+    /**
+     * Gets the table CSS class.
+     * @return CSS class
+     */
+    public String getCssClass() {
+        return cssClass;
     }
 }

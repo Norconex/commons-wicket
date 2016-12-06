@@ -25,8 +25,9 @@ import org.apache.wicket.model.Model;
  * To replace an existing class attribute instead, use 
  * {@link AttributeModifier}.
  * @author Pascal Essiembre
+ * @deprecated Since 2.0.0, use {@link CssClassAppender}
  */
-@SuppressWarnings("nls")
+@Deprecated
 public class CssClass extends AttributeAppender {
     private static final long serialVersionUID = 3338008622183887581L;
     public CssClass(String cssClass) {

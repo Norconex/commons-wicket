@@ -1,4 +1,4 @@
-/* Copyright 2012-2014 Norconex Inc.
+/* Copyright 2012-2016 Norconex Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ public abstract class OddEvenListView<T> extends ListView<T> {
      * @param model List model to cast to Serializable
      */
     public OddEvenListView(
-            String id, IModel<? extends List<? extends T>> model) {
+            String id, IModel<? extends List<T>> model) {
         super(id, model);
     }
     /**
